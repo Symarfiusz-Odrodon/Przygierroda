@@ -1,0 +1,83 @@
+@use "sass:math"
+    
+$wymiaryPaskaTech: 200px
+
+
+@font-face
+    font-family: mina-bold
+    src: url("../public/czcionka/Mina-Bold.ttf")
+    
+body
+    margin: 0
+    width: 100%
+    #root
+        .App
+            #stałaCzęść
+                position: absolute
+                top: 0
+                left: 0
+                z-index: -1
+                display: flex
+                width: 100%
+                height: 100vh
+                background-image: url("./zdjęcia/vaporwave.png")
+                background-position: center
+                background-repeat: no-repeat
+                background-size: cover
+                #lewaNauka
+                    width: calc($wymiaryPaskaTech / 5)
+                    height: 100vh
+                #głównaŚrodkowa
+                    width: calc(100% - ($wymiaryPaskaTech / 5) - ((100% - $wymiaryPaskaTech) / 8))
+                    height: 100vh
+                    margin-top: $wymiaryPaskaTech
+                #prawaDrzewo
+                    width: calc((100% - $wymiaryPaskaTech) / 8)
+                    background-color: brown
+                    height: 100vh
+
+            #przyklejonaCzęść
+                display: flex
+
+                header
+                    height: 100vh
+                    width: $wymiaryPaskaTech
+
+                    .logo
+                        max-height: $wymiaryPaskaTech !important
+                        background-color: blue
+                    .przybocznyPasek
+                        width: math.div($wymiaryPaskaTech, 5)
+                        background-color: blue
+                        height: calc(100vh - $wymiaryPaskaTech)
+        
+                nav
+                    width: calc(100% - $wymiaryPaskaTech)
+                    height: 20vh
+                    display: flex
+                    flex-wrap: wrap
+                    justify-content: center
+
+                    a
+                        width: 25%
+                        height: 50%
+                        text-decoration: none
+                        font-family: mina-bold
+                        color: white
+                        font-size: 25px
+                        background-color: green
+                
+                        div
+                            width: 100%
+                            height: 100%
+                            background-image: url()
+                            display: flex
+                            justify-content: center
+                            align-items: center   
+
+            
+
+    .sticky
+        position: -webkit-sticky
+        position: sticky
+        top:0

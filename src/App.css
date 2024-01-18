@@ -1,38 +1,80 @@
-.App {
-  text-align: center;
+@charset "UTF-8";
+@font-face {
+  font-family: mina-bold;
+  src: url("../public/czcionka/Mina-Bold.ttf");
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  margin: 0;
+  width: 100%;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body #root .App #stałaCzęść {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-image: url("./zdjęcia/vaporwave.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+body #root .App #stałaCzęść #lewaNauka {
+  width: 40px;
+  height: 100vh;
+}
+body #root .App #stałaCzęść #głównaŚrodkowa {
+  width: calc(100% - 40px - (100% - 200px) / 8);
+  height: 100vh;
+  margin-top: 200px;
+}
+body #root .App #stałaCzęść #prawaDrzewo {
+  width: calc((100% - 200px) / 8);
+  background-color: brown;
+  height: 100vh;
+}
+body #root .App #przyklejonaCzęść {
+  display: flex;
+}
+body #root .App #przyklejonaCzęść header {
+  height: 100vh;
+  width: 200px;
+}
+body #root .App #przyklejonaCzęść header .logo {
+  max-height: 200px !important;
+  background-color: blue;
+}
+body #root .App #przyklejonaCzęść header .przybocznyPasek {
+  width: 40px;
+  background-color: blue;
+  height: calc(100vh - 200px);
+}
+body #root .App #przyklejonaCzęść nav {
+  width: calc(100% - 200px);
+  height: 20vh;
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+body #root .App #przyklejonaCzęść nav a {
+  width: 25%;
+  height: 50%;
+  text-decoration: none;
+  font-family: mina-bold;
   color: white;
+  font-size: 25px;
+  background-color: green;
 }
-
-.App-link {
-  color: #61dafb;
+body #root .App #przyklejonaCzęść nav a div {
+  width: 100%;
+  height: 100%;
+  background-image: url();
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+body .sticky {
+  position: sticky;
+  top: 0;
+}/*# sourceMappingURL=App.css.map */
