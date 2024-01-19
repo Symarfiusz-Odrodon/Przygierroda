@@ -5,13 +5,18 @@ import { useState, createContext } from 'react';
 //import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Context } from 'vm';
 
-import logo from'./zdjęcia/logo.png'; 
+import logo from'./zdjęcia/logo.png';
+import ciasteczko from './zdjęcia/ikony/cookies-icon.png';
+import polski from './zdjęcia/ikony/poland-flag-icon.png';
+
 import OPrzygierrodzie from './podstrony/oPrzygierrodzie';
 import WesprzyjNas from './podstrony/WesprzyjNas';
 import Praca from './podstrony/praca';
 import Regulamin from './podstrony/regulamin';
 
 function App() {
+
+  const [używanyJęzyk, ustawJęzyk] = useState(polski)
 
   return (
     <Router>
@@ -20,9 +25,12 @@ function App() {
         <header>
           <div className="logo"><img className="zdjęcieLogo" width={200} height={200} src={logo} alt="logo" /></div>
           <div className="przybocznyPasek">
-            <img src="" alt="" className="ustawieniaStrony" />
-            <img src="" alt="" className="ustawieniaStrony" />
-            <img src="" alt="" className="ustawieniaStrony" />
+            <div className="ustawieniaStrony">
+              <img src={ciasteczko} alt="ciasteczko"/>
+            </div>
+            <div className="ustawieniaStrony">
+              <img src={używanyJęzyk} alt="językPolski"/>
+            </div>
           </div>
         </header>
         <nav>

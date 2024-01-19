@@ -49,6 +49,18 @@ body #root .App #przyklejonaCzęść header .przybocznyPasek {
   width: 40px;
   background-color: blue;
   height: calc(100vh - 200px);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: column;
+}
+body #root .App #przyklejonaCzęść header .przybocznyPasek .ustawieniaStrony {
+  width: 30px;
+  height: 30px;
+  padding-bottom: 5px;
+}
+body #root .App #przyklejonaCzęść header .przybocznyPasek .ustawieniaStrony img {
+  width: 100%;
 }
 body #root .App #przyklejonaCzęść nav {
   width: calc(100% - 200px);
