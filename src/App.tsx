@@ -2,13 +2,14 @@ import './App.css';
 
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { useState, createContext } from 'react';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+//import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Context } from 'vm';
 
 import logo from'./zdjęcia/logo.png'; 
 import OPrzygierrodzie from './podstrony/oPrzygierrodzie';
-
-export const AppContext: Context = createContext("");
+import WesprzyjNas from './podstrony/WesprzyjNas';
+import Praca from './podstrony/praca';
+import Regulamin from './podstrony/regulamin';
 
 function App() {
 
@@ -25,13 +26,13 @@ function App() {
           </div>
         </header>
         <nav>
-          <Link to="/podstrony/oPrzygierrodzie"><div className="przyciskNaglowka">O Nas</div></Link>
+          <Link to="/"><div className="przyciskNaglowka">O Nas</div></Link>
           <Link to="/"><div className="przyciskNaglowka">Nasze Gry</div></Link>
           <Link to="/"><div className="przyciskNaglowka">Kontakt</div></Link>
           <Link to="/"><div className="przyciskNaglowka">Media Socjalne</div></Link>
-          <Link to="/"><div className="przyciskNaglowka">Wesprzyj Nas!</div></Link>
-          <Link to="/"><div className="przyciskNaglowka">Praca</div></Link>
-          <Link to="/"><div className="przyciskNaglowka">Regulamin</div></Link>
+          <Link to="/wesprzyjnas"><div className="przyciskNaglowka">Wesprzyj Nas!</div></Link>
+          <Link to="/praca"><div className="przyciskNaglowka">Praca</div></Link>
+          <Link to="/regulamin"><div className="przyciskNaglowka">Regulamin</div></Link>
         </nav>
       </div>
       <div id="stałaCzęść">
@@ -39,9 +40,9 @@ function App() {
         <section id="głównaŚrodkowa">
                 <Routes>
                   <Route path='/' element={<OPrzygierrodzie/>}/>
-                  <Route path='/'/>
-                  <Route/>
-                  <Route/>
+                  <Route path='/wesprzyjnas' element={<WesprzyjNas/>}/>
+                  <Route path='/praca' element={<Praca/>}/>
+                  <Route path='/regulamin' element={<Regulamin/>}/>
                 </Routes>
         </section>
         <section id="prawaDrzewo"></section>

@@ -26,8 +26,8 @@ body #root .App #stałaCzęść #lewaNauka {
 }
 body #root .App #stałaCzęść #głównaŚrodkowa {
   width: calc(100% - 40px - (100% - 200px) / 8);
-  height: 100vh;
-  margin-top: 200px;
+  height: calc(100vh - 200px);
+  padding-top: 200px;
 }
 body #root .App #stałaCzęść #prawaDrzewo {
   width: calc((100% - 200px) / 8);
