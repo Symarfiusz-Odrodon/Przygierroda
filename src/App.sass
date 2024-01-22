@@ -50,6 +50,18 @@ body
                         width: math.div($wymiaryPaskaTech, 5)
                         background-color: blue
                         height: calc(100vh - $wymiaryPaskaTech)
+                        display: flex
+                        justify-content: flex-end
+                        align-items: center
+                        flex-direction: column
+
+
+                        .ustawieniaStrony
+                            width: calc($wymiaryPaskaTech / 5 - 10px)
+                            height: calc($wymiaryPaskaTech / 5 - 10px)
+                            padding-bottom: 5px
+                            img
+                                width: 100%
         
                 nav
                     width: calc(100% - $wymiaryPaskaTech)
