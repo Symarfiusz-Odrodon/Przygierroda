@@ -57,7 +57,7 @@ body #root .App #przyklejonaCzęść header .przybocznyPasek {
 body #root .App #przyklejonaCzęść header .przybocznyPasek .ustawieniaStrony {
   width: 30px;
   height: 30px;
-  padding-bottom: 5px;
+  padding-bottom: 15px;
 }
 body #root .App #przyklejonaCzęść header .przybocznyPasek .ustawieniaStrony img {
   width: 100%;
