@@ -3,7 +3,7 @@ import "./podstrony.css";
 const Regulamin = () => {
     return (
         <div className="zawartośćPodstrony">
-            To jest podstrona dla oczytanych!
+            <h1>To jest podstrona dla oczytanych!</h1>
         </div>
     )
 };

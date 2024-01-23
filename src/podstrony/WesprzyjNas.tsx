@@ -3,7 +3,7 @@ import "./podstrony.css";
 const WesprzyjNas = () => {
     return (
         <div className="zawartośćPodstrony">
-            To jest podstrona dla skorych do pomocy!
+            <h1>To jest podstrona dla skorych do pomocy!</h1>
         </div>
     )
 };
