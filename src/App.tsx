@@ -37,16 +37,6 @@ function App() {
       <div id="przyklejonaCzęść"  className="sticky">
         <header>
           <div className="logo"><img className="zdjęcieLogo" width={200} height={200} src={logo} alt="logo" /></div>
-          <div className="przybocznyPasek">
-            <div className="ustawieniaStrony">
-              <img src={ciasteczko} alt="ciasteczko"/>
-            </div>
-            <a onClick={zmieńJęzyk}>
-              <div className="ustawieniaStrony">
-                <img src={używanyJęzyk} alt="język"/>
-              </div>
-            </a>
-          </div>
         </header>
         <nav>
           <Link to="/"><div className="przyciskNaglowka">O Nas</div></Link>
@@ -58,6 +48,16 @@ function App() {
           <Link to="/regulamin"><div className="przyciskNaglowka">Regulamin</div></Link>
         </nav>
       </div>
+      <div className="przybocznyPasek sticky">
+            <div className="ustawieniaStrony">
+              <img src={ciasteczko} alt="ciasteczko"/>
+            </div>
+            <a onClick={zmieńJęzyk}>
+              <div className="ustawieniaStrony">
+                <img src={używanyJęzyk} alt="język"/>
+              </div>
+            </a>
+          </div>
       <div id="stałaCzęść">
         <section id="lewaNauka"></section>
         <section id="głównaŚrodkowa">
