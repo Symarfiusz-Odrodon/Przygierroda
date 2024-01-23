@@ -19,11 +19,16 @@ import Regulamin from './podstrony/regulamin';
 
 function App() {
 
-  const tablicaDostępnychJęzyków: Array<String>  = [polski, angielski, niemiecki, rosyjski];
+  const tablicaDostępnychJęzyków: Array<string>  = [polski, angielski, niemiecki, rosyjski];
 
   const [używanyJęzyk, ustawJęzyk] = useState<string>(polski);
   const zmieńJęzyk= () => {
-    ustawJęzyk(angielski);
+    if(tablicaDostępnychJęzyków.indexOf(używanyJęzyk) + 1 < tablicaDostępnychJęzyków.length){
+      ustawJęzyk(tablicaDostępnychJęzyków[tablicaDostępnychJęzyków.indexOf(używanyJęzyk) + 1]);
+      console.log(tablicaDostępnychJęzyków.indexOf(używanyJęzyk) + 1)
+    } else {
+      ustawJęzyk(polski);
+    }
   }
 
   return (
@@ -38,7 +43,7 @@ function App() {
             </div>
             <a onClick={zmieńJęzyk}>
               <div className="ustawieniaStrony">
-                <img src={używanyJęzyk} alt="językPolski"/>
+                <img src={używanyJęzyk} alt="język"/>
               </div>
             </a>
           </div>
