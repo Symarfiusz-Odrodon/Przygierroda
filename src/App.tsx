@@ -42,11 +42,12 @@ function App() {
             <div className="ustawieniaStrony">
               <img src={ciasteczko} alt="ciasteczko"/>
             </div>
-            <a onClick={() => zmieńJęzyk}>
-              <div className="ustawieniaStrony">
-                <img src={(używanyJęzyk as string)} alt="język"/>
-              </div>
-            </a>
+            <a onClick={() => zmieńJęzyk()}>
+  <div className="ustawieniaStrony">
+    <img src={(używanyJęzyk as string)} alt="język"/>
+  </div>
+</a>
+
           </div>
       <div id="stałaCzęść">
         <section id="lewaNauka"></section>
