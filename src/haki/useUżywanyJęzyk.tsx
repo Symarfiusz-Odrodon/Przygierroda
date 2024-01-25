@@ -7,13 +7,18 @@ import rosyjski from '../zdjęcia/ikony/russia-flag-icon.png'
 export const useUżywanyJęzyk = (): [string, () => void] => {
     const tablicaDostępnychJęzyków: Array<string>  = [polski, angielski, niemiecki, rosyjski];
     const [używanyJęzyk, ustawJęzyk] = useState<string>(polski);
-    let który: number = 0;
+    const [który, ustawKtóry] = useState<number>(0);
 
     const zmieńJęzyk: () => void = () => {
-      który += 1
-        który = który % tablicaDostępnychJęzyków.length;
-        ustawJęzyk(tablicaDostępnychJęzyków[który]);
-        console.log(który +" "+ tablicaDostępnychJęzyków.length);
+      if(który+1 == tablicaDostępnychJęzyków.length){
+        ustawKtóry(0);
+      } else {
+        ustawKtóry(który+1);
+      }
+
+      ustawJęzyk(tablicaDostępnychJęzyków[który])
+
+      
     };
 
     return [używanyJęzyk, zmieńJęzyk];

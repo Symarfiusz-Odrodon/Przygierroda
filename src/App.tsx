@@ -18,9 +18,7 @@ import Regulamin from './podstrony/regulamin';
 function App() {
 
   const [używanyJęzyk, zmieńJęzyk] = useUżywanyJęzyk();
-
-  console.log(używanyJęzyk);
-
+  
   return (
     <Router>
     <div className="App">

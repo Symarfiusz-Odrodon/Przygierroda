@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\src\\App.tsx",
+            "program": "${workspaceFolder}\\src\\haki\\useUżywanyJęzyk.tsx",
             "runtimeArgs": ["-r", "ts-node/register", "-r", "tsconfig-paths/register"],
             "console": "integratedTerminal",
             "outFiles": [

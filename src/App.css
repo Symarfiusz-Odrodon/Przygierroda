@@ -35,7 +35,7 @@ body #root .App #stałaCzęść #prawaDrzewo {
   height: 100vh;
 }
 body #root .App #przyklejonaCzęść {
-  z-index: 2;
+  z-index: 3;
   display: flex;
 }
 body #root .App #przyklejonaCzęść header {
@@ -70,7 +70,7 @@ body #root .App #przyklejonaCzęść nav a div {
   align-items: center;
 }
 body #root .App .przybocznyPasek {
-  z-index: 2;
+  z-index: 3;
   width: 40px;
   background-color: blue;
   height: calc(100vh - 200px);
