@@ -13,7 +13,7 @@ const OPrzygierrodzie = () => {
             <div id="naszeGry">
                 <h2>Nasze Gry</h2>
                 <p>dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd ddddddddddddddddddddddddddddddddddddd ddddddddddddddddddddddddddddddddddddddddddddddd 
-                    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd dddddddddddddddddddddddd ddddddddddddddd dddddddddddddddddddddddddddddddddddd dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd</p>
+                    ddddddddddddddddddddddddddddddddddddddddddddddd dddddddddddddddddddddddd ddddddddddddddd dddddddddddddddddddddddddddddddddddd dddddddddddddddddddddddd</p>
             </div>
             <hr></hr>
             <div id="kontakt">

@@ -38,7 +38,7 @@ function App() {
           <Link to="/regulamin"><div className="przyciskNaglowka">Regulamin</div></Link>
         </nav>
       </div>
-      <div className="przybocznyPasek sticky">
+      <div className="przybocznyPasek">
         <div className="ustawieniaStrony">
           <img src={ciasteczko} alt="ciasteczko"/>
         </div>
