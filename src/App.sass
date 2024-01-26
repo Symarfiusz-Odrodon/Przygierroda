@@ -29,12 +29,17 @@ body
                 #lewaNauka
                     width: calc($wymiaryPaskaTech / 5)
                     height: 100vh
-                #głównaŚrodkowa
+                
+                #głównaCzęść
                     width: calc(100% - ($wymiaryPaskaTech / 5) - ((100% - $wymiaryPaskaTech) / 8))
-                    height: calc(100vh - $wymiaryPaskaTech)
-                    padding-top: $wymiaryPaskaTech
-                    overflow-y: scroll
-                    overflow-x: hidden
+                    #zapychaczŚrodkowy
+                        height:$wymiaryPaskaTech
+                        width: 100%
+                    #głównaŚrodkowa
+                        width: 100%
+                        height: calc(100vh - $wymiaryPaskaTech)
+                        overflow-y: scroll
+                        overflow-x: hidden
 
                 #prawaDrzewo
                     width: calc((100% - $wymiaryPaskaTech) / 8)

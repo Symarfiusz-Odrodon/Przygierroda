@@ -51,13 +51,16 @@ function App() {
       </div>
       <div id="stałaCzęść">
         <section id="lewaNauka"></section>
-        <section id="głównaŚrodkowa">
-                <Routes>
-                  <Route path='/' element={<OPrzygierrodzie/>}/>
-                  <Route path='/wesprzyjnas' element={<WesprzyjNas/>}/>
-                  <Route path='/praca' element={<Praca/>}/>
-                  <Route path='/regulamin' element={<Regulamin/>}/>
-                </Routes>
+        <section id="głównaCzęść">
+          <section id="zapychaczŚrodkowy"></section>
+          <section id="głównaŚrodkowa">
+                  <Routes>
+                    <Route path='/' element={<OPrzygierrodzie/>}/>
+                    <Route path='/wesprzyjnas' element={<WesprzyjNas/>}/>
+                    <Route path='/praca' element={<Praca/>}/>
+                    <Route path='/regulamin' element={<Regulamin/>}/>
+                  </Routes>
+          </section>
         </section>
         <section id="prawaDrzewo"></section>
       </div>
