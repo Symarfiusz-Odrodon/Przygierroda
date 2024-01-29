@@ -4,6 +4,8 @@ import * as yup from "yup"
 import {yupResolver} from "@hookform/resolvers/yup"
 import { EmitFlags } from "typescript";
 
+var czyPoprawne = false;
+
 const OPrzygierrodzie = () => {
     const schemat  = yup.object().shape({
         Imię: yup.string().min(1).max(20).notRequired(),
@@ -16,14 +18,14 @@ const OPrzygierrodzie = () => {
     });
     const gdyPotwierdzi = (dane: { Imię?: yup.Maybe<string | undefined>; Nazwisko?: yup.Maybe<string | undefined>; Email?: yup.Maybe<string | undefined>; Wiadomość: string; }) => {
         console.log(dane);
-    };
-    var czyPoprawne = false;
+    }; 
     const sprawdźCzyPoprawne = () =>{
         if(Object.keys(errors).length === 0){
           czyPoprawne = true;
         } else {
           czyPoprawne =false;
         }
+        console.log(czyPoprawne);
     };
 
     return (
@@ -55,7 +57,7 @@ const OPrzygierrodzie = () => {
                     <textarea placeholder="Twoja wiadomość" cols={30} rows={10} {...register("Wiadomość")}></textarea>
                     <p>{errors.Wiadomość?.message}</p>
                     <input type="submit" placeholder="Potwierdź" onClick={() => sprawdźCzyPoprawne()}/>
-                    <p>{(czyPoprawne)?"Konto utworzone!":""}</p>
+                    {czyPoprawne ? <p>Konto utworzone!</p> : <p></p>}
                 </form>
 
             </div>
