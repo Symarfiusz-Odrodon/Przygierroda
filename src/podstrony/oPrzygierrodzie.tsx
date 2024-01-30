@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup"
 import {yupResolver} from "@hookform/resolvers/yup"
 import { EmitFlags } from "typescript";
+import emailjs from "@emailjs/browser";
 
 var czyPoprawne = false;
 
@@ -47,17 +48,17 @@ const OPrzygierrodzie = () => {
                 <h2>Kontakt</h2>
                 <p>Na chwilę obecną nie zamierzamy podawać naszego adresu e-mail. Jednakże możesz wypełnićten formularz, a efekt będzie taki sam!</p>
                 <form onSubmit={handleSubmit(gdyPotwierdzi)}>
-                    <input type="text" placeholder="Imię" {...register("Imię")}/>
+                    <input type="text" placeholder="Imię"  {...register("Imię")} name="imię"/>
                     <p>{errors.Imię?.message}</p>
-                    <input type="text" placeholder="Nazwisko" {...register("Nazwisko")}/>
+                    <input type="text" placeholder="Nazwisko" {...register("Nazwisko")} name="nazwisko"/>
                     <p>{errors.Nazwisko?.message}</p>
-                    <input type="email" placeholder="Email" {...register("Email")}/>
+                    <input type="email" placeholder="Email" {...register("Email")} name="adresEmail"/>
                     <p>{errors.Email?.message}</p>
                     <p><p>{errors.Imię?.message}</p></p>
-                    <textarea placeholder="Twoja wiadomość" cols={30} rows={10} {...register("Wiadomość")}></textarea>
+                    <textarea placeholder="Twoja wiadomość" cols={30} rows={10} {...register("Wiadomość")} name="treść"></textarea>
                     <p>{errors.Wiadomość?.message}</p>
                     <input type="submit" placeholder="Potwierdź" onClick={() => sprawdźCzyPoprawne()}/>
-                    {czyPoprawne ? <p>Konto utworzone!</p> : <p></p>}
+                    {czyPoprawne ? <p>Wiadomość pomysłnie wysłana!</p> : <p></p>}
                 </form>
 
             </div>
