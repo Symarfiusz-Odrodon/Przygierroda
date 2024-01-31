@@ -6,11 +6,15 @@ $wymiaryPaskaTech: 200px
 @font-face
     font-family: mina-bold
     src: url("../public/czcionka/Mina-Bold.ttf")
-    
+
+#popup-root:
+    background-color: white
+
 body
     margin: 0
     width: 100%
     height: auto
+
     #root
         .App
             #stałaCzęść
@@ -96,6 +100,8 @@ body
                 justify-content: flex-end
                 align-items: center
                 flex-direction: column
+
+                
 
                 .ustawieniaStrony
                     width: calc($wymiaryPaskaTech / 5 - 10px)

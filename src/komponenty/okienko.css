@@ -1,0 +1,14 @@
+@charset "UTF-8";
+@font-face {
+  font-family: mina-bold;
+  src: url("../../public/czcionka/Mina-Bold.ttf");
+}
+#główny {
+  background-color: white;
+  position: fixed;
+  top: 50vh;
+  left: 50%;
+  z-index: 10;
+  padding: 50px;
+  border-radius: 10px;
+}/*# sourceMappingURL=okienko.css.map */

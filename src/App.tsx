@@ -4,9 +4,10 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { useState, createContext, useEffect } from 'react';
 //import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Context } from 'vm';
+import { CookiesProvider, useCookies } from "react-cookie";
+import { WyskakująceOkienko } from './komponenty/WyskakująceOkienko';
 
 import logo from'./zdjęcia/logo.png';
-import ciasteczko from './zdjęcia/ikony/cookies-icon.png';
 
 import { useUżywanyJęzyk } from './haki/useUżywanyJęzyk';
 
@@ -39,9 +40,7 @@ function App() {
         </nav>
       </div>
       <div className="przybocznyPasek">
-        <div className="ustawieniaStrony">
-          <img src={ciasteczko} alt="ciasteczko"/>
-        </div>
+        <WyskakująceOkienko></WyskakująceOkienko>
         <a onClick={() => zmieńJęzyk()}>
           <div className="ustawieniaStrony">
             <img src={(używanyJęzyk as string)} alt="język"/>
