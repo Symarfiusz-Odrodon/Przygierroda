@@ -39,6 +39,9 @@ body #root .App #stałaCzęść #głównaCzęść #głównaŚrodkowa {
   overflow-y: scroll;
   overflow-x: hidden;
 }
+body #root .App #stałaCzęść #głównaCzęść #głównaŚrodkowa::-webkit-scrollbar {
+  display: none;
+}
 body #root .App #stałaCzęść #prawaDrzewo {
   width: calc((100% - 200px) / 8);
   background-color: brown;

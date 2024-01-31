@@ -3,14 +3,14 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup"
 import {yupResolver} from "@hookform/resolvers/yup"
 import emailjs from "@emailjs/browser";
-import { useRef, useEffect, useState } from "react";
 import React from "react";
 
-var czyPoprawne = false;
+var czyPoprawne: boolean = false;
 
 const OPrzygierrodzie = () => {
 
     const schemat  = yup.object().shape({
+        Zwrot: yup.mixed().oneOf(["Pan", "Pani", "Nie trzeba ;)"]).notRequired(),
         Imię: yup.string().min(1).max(20).notRequired(),
         Nazwisko: yup.string().min(1).max(20).notRequired(),
         Email: yup.string().email().notRequired(),
@@ -22,16 +22,17 @@ const OPrzygierrodzie = () => {
     const wyślij = async(e: React.FormEvent<HTMLFormElement>) => {
 
         e.preventDefault();
-
-        emailjs.sendForm("service_hrr5baa", "template_09khmjk", e.currentTarget, "UEh7a2bTU5Bz-UoX6")
-            .then(
-                (result) => {
-                    console.log(result.text);
-                },
-                (error) => {
-                    console.log(error.text);
-                }
+        if(czyPoprawne){
+            emailjs.sendForm("service_hrr5baa", "template_09khmjk", e.currentTarget, "UEh7a2bTU5Bz-UoX6")
+                .then(
+                    (result) => {
+                        console.log(result.text);
+                    },
+                    (error) => {
+                        console.log(error.text);
+                    }
             );
+        }
         
     }
     const gdyPotwierdzi = (dane: { Imię?: yup.Maybe<string | undefined>; Nazwisko?: yup.Maybe<string | undefined>; Email?: yup.Maybe<string | undefined>; Wiadomość: string; }) => {
@@ -68,6 +69,13 @@ const OPrzygierrodzie = () => {
                 <h2>Kontakt</h2>
                 <p>Na chwilę obecną nie zamierzamy podawać naszego adresu e-mail. Jednakże możesz wypełnićten formularz, a efekt będzie taki sam!</p>
                 <form onSubmit={wyślij}>
+                    <select {...register("Zwrot")} name="zwrotGrzecznościowy">
+                        <option disabled selected> --zwrot grzecznościowy-- </option>
+                        <option value="Pan">Pan</option>
+                        <option value="Pani">Pani</option>
+                        <option value="Nie trzeba ;)">Nie trzeba ;)</option>
+                    </select>
+                    <p>{errors.Zwrot?.message}</p>
                     <input type="text" placeholder="Imię"  {...register("Imię")} name="imię"/>
                     <p>{errors.Imię?.message}</p>
                     <input type="text" placeholder="Nazwisko" {...register("Nazwisko")} name="nazwisko"/>

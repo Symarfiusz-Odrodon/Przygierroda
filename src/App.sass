@@ -40,6 +40,8 @@ body
                         height: calc(100vh - $wymiaryPaskaTech)
                         overflow-y: scroll
                         overflow-x: hidden
+                        &::-webkit-scrollbar
+                           display: none 
 
                 #prawaDrzewo
                     width: calc((100% - $wymiaryPaskaTech) / 8)
