@@ -2,12 +2,14 @@ import "./podstrony.css";
 import { useForm } from "react-hook-form";
 import * as yup from "yup"
 import {yupResolver} from "@hookform/resolvers/yup"
-import { EmitFlags } from "typescript";
 import emailjs from "@emailjs/browser";
+import { useRef, useEffect, useState } from "react";
+import React from "react";
 
 var czyPoprawne = false;
 
 const OPrzygierrodzie = () => {
+
     const schemat  = yup.object().shape({
         Imię: yup.string().min(1).max(20).notRequired(),
         Nazwisko: yup.string().min(1).max(20).notRequired(),
@@ -17,16 +19,34 @@ const OPrzygierrodzie = () => {
     const {register, handleSubmit, formState: {errors}} = useForm({
         resolver: yupResolver(schemat),
     });
+    const wyślij = async(e: React.FormEvent<HTMLFormElement>) => {
+
+        e.preventDefault();
+
+        emailjs.sendForm("service_hrr5baa", "template_09khmjk", e.currentTarget, "UEh7a2bTU5Bz-UoX6")
+            .then(
+                (result) => {
+                    console.log(result.text);
+                },
+                (error) => {
+                    console.log(error.text);
+                }
+            );
+        
+    }
     const gdyPotwierdzi = (dane: { Imię?: yup.Maybe<string | undefined>; Nazwisko?: yup.Maybe<string | undefined>; Email?: yup.Maybe<string | undefined>; Wiadomość: string; }) => {
+       
         console.log(dane);
     }; 
     const sprawdźCzyPoprawne = () =>{
         if(Object.keys(errors).length === 0){
           czyPoprawne = true;
+
         } else {
           czyPoprawne =false;
         }
         console.log(czyPoprawne);
+        return czyPoprawne
     };
 
     return (
@@ -47,7 +67,7 @@ const OPrzygierrodzie = () => {
             <div id="kontakt">
                 <h2>Kontakt</h2>
                 <p>Na chwilę obecną nie zamierzamy podawać naszego adresu e-mail. Jednakże możesz wypełnićten formularz, a efekt będzie taki sam!</p>
-                <form onSubmit={handleSubmit(gdyPotwierdzi)}>
+                <form onSubmit={wyślij}>
                     <input type="text" placeholder="Imię"  {...register("Imię")} name="imię"/>
                     <p>{errors.Imię?.message}</p>
                     <input type="text" placeholder="Nazwisko" {...register("Nazwisko")} name="nazwisko"/>
