@@ -4,11 +4,33 @@
   src: url("../../public/czcionka/Mina-Bold.ttf");
 }
 #główny {
-  background-color: white;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
   position: fixed;
-  top: 50vh;
-  left: 50%;
   z-index: 10;
-  padding: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(70, 70, 70, 0.5);
+}
+#główny #wnętrze {
+  position: relative;
+  width: 30%;
+  height: auto;
+  padding: 10px 50px;
   border-radius: 10px;
+  text-align: center;
+  background-color: white;
+}
+#główny #wnętrze #krzyżyk {
+  max-width: 20px;
+  max-height: 20px;
+  position: absolute;
+  right: 15px;
+  top: 10px;
+}
+#główny #wnętrze #krzyżyk img {
+  height: 20px;
 }/*# sourceMappingURL=okienko.css.map */

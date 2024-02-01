@@ -7,7 +7,6 @@ body {
   margin: 0;
   width: 100%;
   height: auto;
-  .popup-overlay-background-color: white;
 }
 body #root .App #stałaCzęść {
   position: absolute;
