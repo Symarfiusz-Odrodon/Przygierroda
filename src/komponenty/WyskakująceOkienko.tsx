@@ -17,20 +17,20 @@ export const WyskakująceOkienko = () => {
               
               <h1>Używamy ciasteczek!</h1>
               <b><p>I choć wierzemy, że czasami trzeba osłodzić swoje życie, tak też rozumiemy Twoją chęć prywatności i ją szanujemy.</p></b>
-              <div>
-                <label htmlFor="">
-                  <p>Ciasteczka zapamiętujące preferencje użytkownika.</p>
-                  <input type="checkbox" />
-                  <span className="slider"></span>
+              
+              <div id="wajchy">
+                <p>Ciasteczka zapamiętujące preferencje użytkownika.</p>
+                <label className="wajcha">
+                  <input type="checkbox"/>
+                  <span className="suwak"></span>
                 </label>
-                <br></br>
-                <label htmlFor="">
-                  <p>Ciasteczka zbierające anonimowo informacje na temat odwiedzonych części stron.</p>
-                  <input type="checkbox" />
-                  <span className="slider"></span>
+                <p>Ciasteczka zbierające anonimowo informacje na temat odwiedzonych części stron.</p>
+                <label className="wajcha">
+                  <input type="checkbox"/>
+                  <span className="suwak"></span>
                 </label>
               </div>
-              <div>
+              <div id="przyciski">
                 <button onClick={()=>ustawKrzyżykOkienka(false)}>Potwierdź wszystkie</button>
                 <button onClick={()=>ustawKrzyżykOkienka(false)}>Zapisz Wybór</button>
               </div>

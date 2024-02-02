@@ -12,6 +12,7 @@
   position: fixed;
   z-index: 10;
   display: flex;
+  text-align: center;
   align-items: center;
   justify-content: center;
   background: rgba(118, 123, 141, 0.75);
@@ -25,13 +26,93 @@
   text-align: center;
   background-color: white;
 }
+#główny #wnętrze #przyciski {
+  display: flex;
+  justify-content: space-around;
+}
+#główny #wnętrze #przyciski button {
+  background-color: #2196f3;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition-duration: 0.5s;
+}
+#główny #wnętrze #przyciski button:hover {
+  background-color: #0f75c8;
+}
+#główny #wnętrze #przyciski button:active {
+  transition-duration: 0s;
+  border: #0f75c8 solid 3px;
+  background-color: #fff;
+  color: #2196f3;
+}
 #główny #wnętrze #krzyżyk {
   max-width: 20px;
   max-height: 20px;
   position: absolute;
   right: 15px;
   top: 10px;
+  transition-duration: 0.5s;
+  border-radius: 50%;
+}
+#główny #wnętrze #krzyżyk:hover {
+  background-color: rgba(118, 123, 141, 0.75);
 }
 #główny #wnętrze #krzyżyk img {
   height: 20px;
+}
+#główny #wnętrze #wajchy {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+#główny #wnętrze #wajchy p {
+  width: 80%;
+}
+#główny #wnętrze #wajchy .wajcha {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+#główny #wnętrze #wajchy .wajcha input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+#główny #wnętrze #wajchy .wajcha input:checked + .suwak {
+  background-color: #2196f3;
+}
+#główny #wnętrze #wajchy .wajcha input:focus + .suwak {
+  box-shadow: 0 0 1px #2196F3;
+}
+#główny #wnętrze #wajchy .wajcha input:checked + .suwak::before {
+  transform: translateX(26px);
+}
+#główny #wnętrze #wajchy .wajcha .suwak {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+}
+#główny #wnętrze #wajchy .wajcha .suwak::before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
 }/*# sourceMappingURL=okienko.css.map */
