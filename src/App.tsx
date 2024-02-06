@@ -28,7 +28,7 @@ function App() {
 
   const [ciasteczka, ustawCiasteczka] = useCookies(["czyPokazacOkienko","czyZezwalaNaZPU","czyZezwalaNaZAI"]);
   ustawCiasteczka("czyPokazacOkienko", true, {path: "/", expires: new Date(Date.now() + 5*24*3600)});
-  ustawCiasteczka("czyZezwalaNaZPU", false, {path: "/", expires: new Date(Date.now() + 5*24*3600)});
+  ustawCiasteczka("czyZezwalaNaZPU", true, {path: "/", expires: new Date(Date.now() + 5*24*3600)});
   ustawCiasteczka("czyZezwalaNaZAI", true, {path: "/", expires: new Date(Date.now() + 5*24*3600)});
 
   const [używanyJęzyk, zmieńJęzyk] = useUżywanyJęzyk();

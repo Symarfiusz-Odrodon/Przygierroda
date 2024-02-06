@@ -7,19 +7,36 @@ import ciasteczko from '../zdjęcia/ikony/cookies-icon.png';
 import krzyżyk from "../zdjęcia/ikony/krzyżyk.png"
 import { Cookie } from "universal-cookie";
 import { useCookies } from "react-cookie";
+import { string } from "yup";
 
 // export const [czyZezwoliłNaZapamiętywaniePreferencji, ustawPreferencjeOZP] = useState<boolean>(true);
 // export const [czyZezwoliłNaZbieranieDanych, ustawPreferencjeOZD] = useState<boolean>(true);
 
 export const WyskakująceOkienko = () => {
-    const [ciasteczka, ustawCiasteczka] = useCookies(["czyPokazaćOkienko","czyZezwalaNaZPU","czyZezwalaNaZAI"]);
-    const [krzyżykOkienka, ustawKrzyżykOkienka] = useState(ciasteczka.czyPokazaćOkienko);
+    const [ciasteczka, ustawCiasteczka] = useCookies(["czyPokazacOkienko","czyZezwalaNaZPU","czyZezwalaNaZAI"]);
+    console.log(ciasteczka);
+    const [krzyżykOkienka, ustawKrzyżykOkienka] = useState(ciasteczka.czyPokazacOkienko);
+
+    const zamknijOkienko = (czyZatwierdzić: boolean = false, czyWszystkoPotwierdzić: boolean = false) => {
+      ustawKrzyżykOkienka(false); 
+      ustawCiasteczka("czyPokazacOkienko", false, {path: "/"});
+      if(czyZatwierdzić){
+        ustawCiasteczka("czyZezwalaNaZAI", false, {path: "/"});
+        ustawCiasteczka("czyZezwalaNaZPU", false, {path: "/"});        
+      }
+      if (czyWszystkoPotwierdzić){
+        ustawCiasteczka("czyZezwalaNaZAI", true, {path: "/"});
+        ustawCiasteczka("czyZezwalaNaZPU", true, {path: "/"});
+      }
+      console.log(ciasteczka);
+    }
+
     return (
       <div className="ustawieniaStrony" onClick={() => ustawKrzyżykOkienka(true)}><img src={ciasteczko} alt="ciasteczko"/>
         <Popup open={krzyżykOkienka}>
           <div id="główny">
             <div id="wnętrze">
-              <div id="krzyżyk" onClick={()=>ustawKrzyżykOkienka(false)}><img src={krzyżyk} alt="zamknij" /></div>
+              <div id="krzyżyk" onClick={() => zamknijOkienko()}><img src={krzyżyk} alt="zamknij" /></div>
               
               <h1>Używamy ciasteczek!</h1>
               <b><p>I choć wierzemy, że czasami trzeba osłodzić swoje życie, tak też rozumiemy Twoją chęć prywatności i ją szanujemy.</p></b>
@@ -37,8 +54,8 @@ export const WyskakująceOkienko = () => {
                 </label>
               </div>
               <div id="przyciski">
-                <button onClick={()=>ustawKrzyżykOkienka(false)}>Potwierdź wszystkie</button>
-                <button onClick={()=>ustawKrzyżykOkienka(false)}>Zapisz Wybór</button>
+                <button onClick={() => zamknijOkienko(false, true)}>Potwierdź wszystkie</button>
+                <button onClick={() => zamknijOkienko(true)}>Zapisz Wybór</button>
               </div>
             </div>
           </div>
