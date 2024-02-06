@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { useState, createContext, useEffect } from 'react';
 //import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Context } from 'vm';
-import { CookiesProvider, useCookies } from "react-cookie";
+import { useCookies } from 'react-cookie';
 import { WyskakująceOkienko } from './komponenty/WyskakująceOkienko';
 
 import logo from'./zdjęcia/logo.png';
@@ -17,8 +17,19 @@ import OPrzygierrodzie from './podstrony/oPrzygierrodzie';
 import WesprzyjNas from './podstrony/WesprzyjNas';
 import Praca from './podstrony/praca';
 import Regulamin from './podstrony/regulamin';
+import path from 'path';
+import { date } from 'yup';
+
+// ciasteczka.set("czyPokazaćOkienko", true, {path: "/", expires: new Date(Date.now() + 5*24*3600)});
+// ciasteczka.set("czyZezwalaNaZPU", true, {path: "/", expires: new Date(Date.now() + 5*24*3600)});
+// ciasteczka.set("czyZezwalaNaZAI", true, {path: "/", expires: new Date(Date.now() + 5*24*3600)});
 
 function App() {
+
+  const [ciasteczka, ustawCiasteczka] = useCookies(["czyPokazacOkienko","czyZezwalaNaZPU","czyZezwalaNaZAI"]);
+  ustawCiasteczka("czyPokazacOkienko", true, {path: "/", expires: new Date(Date.now() + 5*24*3600)});
+  ustawCiasteczka("czyZezwalaNaZPU", false, {path: "/", expires: new Date(Date.now() + 5*24*3600)});
+  ustawCiasteczka("czyZezwalaNaZAI", true, {path: "/", expires: new Date(Date.now() + 5*24*3600)});
 
   const [używanyJęzyk, zmieńJęzyk] = useUżywanyJęzyk();
   

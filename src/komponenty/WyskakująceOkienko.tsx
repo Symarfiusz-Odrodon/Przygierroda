@@ -5,13 +5,15 @@ import Popup from "reactjs-popup";
 
 import ciasteczko from '../zdjęcia/ikony/cookies-icon.png';
 import krzyżyk from "../zdjęcia/ikony/krzyżyk.png"
+import { Cookie } from "universal-cookie";
+import { useCookies } from "react-cookie";
 
 // export const [czyZezwoliłNaZapamiętywaniePreferencji, ustawPreferencjeOZP] = useState<boolean>(true);
 // export const [czyZezwoliłNaZbieranieDanych, ustawPreferencjeOZD] = useState<boolean>(true);
 
 export const WyskakująceOkienko = () => {
-    const [krzyżykOkienka, ustawKrzyżykOkienka] = useState(false);
-  const newLocal = "checked";
+    const [ciasteczka, ustawCiasteczka] = useCookies(["czyPokazaćOkienko","czyZezwalaNaZPU","czyZezwalaNaZAI"]);
+    const [krzyżykOkienka, ustawKrzyżykOkienka] = useState(ciasteczka.czyPokazaćOkienko);
     return (
       <div className="ustawieniaStrony" onClick={() => ustawKrzyżykOkienka(true)}><img src={ciasteczko} alt="ciasteczko"/>
         <Popup open={krzyżykOkienka}>
@@ -25,12 +27,12 @@ export const WyskakująceOkienko = () => {
               <div id="wajchy">
                 <p>Ciasteczka zapamiętujące preferencje użytkownika.</p>
                 <label className="wajcha">
-                  <input type="checkbox" checked/>
+                  <input type="checkbox" defaultChecked={ciasteczka.czyZezwalaNaZPU}/>
                   <span className="suwak"></span>
                 </label>
                 <p>Ciasteczka zbierające anonimowo informacje na temat odwiedzonych części stron.</p>
                 <label className="wajcha">
-                  <input type="checkbox" checked/>
+                  <input type="checkbox" defaultChecked={ciasteczka.czyZezwalaNaZAI}/>
                   <span className="suwak"></span>
                 </label>
               </div>
