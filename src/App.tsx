@@ -20,16 +20,19 @@ import Regulamin from './podstrony/regulamin';
 import path from 'path';
 import { date } from 'yup';
 
-// ciasteczka.set("czyPokazaćOkienko", true, {path: "/", expires: new Date(Date.now() + 5*24*3600)});
-// ciasteczka.set("czyZezwalaNaZPU", true, {path: "/", expires: new Date(Date.now() + 5*24*3600)});
-// ciasteczka.set("czyZezwalaNaZAI", true, {path: "/", expires: new Date(Date.now() + 5*24*3600)});
+
 
 function App() {
 
   const [ciasteczka, ustawCiasteczka] = useCookies(["czyPokazacOkienko","czyZezwalaNaZPU","czyZezwalaNaZAI"]);
-  ustawCiasteczka("czyPokazacOkienko", true, {path: "/", expires: new Date(Date.now() + 5*24*3600)});
-  ustawCiasteczka("czyZezwalaNaZPU", true, {path: "/", expires: new Date(Date.now() + 5*24*3600)});
-  ustawCiasteczka("czyZezwalaNaZAI", true, {path: "/", expires: new Date(Date.now() + 5*24*3600)});
+  useEffect(() => {
+    if(ciasteczka.czyPokazacOkienko == null){
+      ustawCiasteczka("czyPokazacOkienko", true, {path: "/", expires: new Date(Date.now() + 5*24*3600*1000)});
+      ustawCiasteczka("czyZezwalaNaZPU", true, {path: "/", expires: new Date(Date.now() + 5*24*3600*1000)});
+      ustawCiasteczka("czyZezwalaNaZAI", true, {path: "/", expires: new Date(Date.now() + 5*24*3600*1000)});
+    }
+  }, [ciasteczka.czyPokazacOkienko == null]);
+  
 
   const [używanyJęzyk, zmieńJęzyk] = useUżywanyJęzyk();
   
