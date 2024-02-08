@@ -51,8 +51,8 @@ const OPrzygierrodzie = () => {
     };
 
     return (
-        <div className="zawartośćPodstrony">
-            <div id="oNas">
+        <div className="zawartośćPodstrony" id="oNas">
+            <div >
                 <h1>Witamy w Przygierrodzie!</h1>
                 <hr></hr>
                 <h2>O Nas</h2>
