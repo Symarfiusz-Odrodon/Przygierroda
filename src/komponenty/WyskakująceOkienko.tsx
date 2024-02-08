@@ -5,9 +5,7 @@ import Popup from "reactjs-popup";
 
 import ciasteczko from '../zdjęcia/ikony/cookies-icon.png';
 import krzyżyk from "../zdjęcia/ikony/krzyżyk.png"
-import { Cookie } from "universal-cookie";
 import { useCookies } from "react-cookie";
-import { string } from "yup";
 
 // export const [czyZezwoliłNaZapamiętywaniePreferencji, ustawPreferencjeOZP] = useState<boolean>(true);
 // export const [czyZezwoliłNaZbieranieDanych, ustawPreferencjeOZD] = useState<boolean>(true);

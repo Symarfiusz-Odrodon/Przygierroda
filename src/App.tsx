@@ -17,19 +17,18 @@ import OPrzygierrodzie from './podstrony/oPrzygierrodzie';
 import WesprzyjNas from './podstrony/WesprzyjNas';
 import Praca from './podstrony/praca';
 import Regulamin from './podstrony/regulamin';
-import path from 'path';
-import { date } from 'yup';
 
 
 
 function App() {
 
-  const [ciasteczka, ustawCiasteczka] = useCookies(["czyPokazacOkienko","czyZezwalaNaZPU","czyZezwalaNaZAI"]);
+  const [ciasteczka, ustawCiasteczka] = useCookies(["czyPokazacOkienko","czyZezwalaNaZPU","czyZezwalaNaZAI","jakiJezyk"]);
   useEffect(() => {
     if(ciasteczka.czyPokazacOkienko == null){
       ustawCiasteczka("czyPokazacOkienko", true, {path: "/", expires: new Date(Date.now() + 5*24*3600*1000)});
       ustawCiasteczka("czyZezwalaNaZPU", true, {path: "/", expires: new Date(Date.now() + 5*24*3600*1000)});
       ustawCiasteczka("czyZezwalaNaZAI", true, {path: "/", expires: new Date(Date.now() + 5*24*3600*1000)});
+      ustawCiasteczka("jakiJezyk", "Polski", {path: "/", expires: new Date(Date.now() + 5*24*3600*1000)})
     }
   }, [ciasteczka.czyPokazacOkienko == null]);
   
