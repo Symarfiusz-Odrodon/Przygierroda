@@ -6,18 +6,20 @@ import angielski from '../zdjęcia/ikony/united-kingdom-flag-icon.png'
 import niemiecki from '../zdjęcia/ikony/germany-flag-icon.png'
 import rosyjski from '../zdjęcia/ikony/russia-flag-icon.png'
 
-var który: number;
+var który: number = 0;
 
 export const useUżywanyJęzyk = (): [string, () => void] => {
-  const [ciasteczka, ustawCiasteczka] = useCookies(["jakiJezyk"]);
+  const [ciasteczka, ustawCiasteczka] = useCookies([ "czyZezwalaNaZPU","jakiJezyk"]);
 
     useEffect(()=>{
-      for(var i:number = 0; i < tablicaJęzykówWStringach.length; i++){
-        if(ciasteczka.jakiJezyk == tablicaJęzykówWStringach[i]){
-          który = i;
-          ustawJęzyk(tablicaDostępnychJęzyków[który]);
-          console.log(tablicaJęzykówWStringach[który]+" "+który);
-          break;
+      if(ciasteczka.czyZezwalaNaZPU){
+        for(var i:number = 0; i < tablicaJęzykówWStringach.length; i++){
+          if(ciasteczka.jakiJezyk == tablicaJęzykówWStringach[i]){
+            który = i;
+            ustawJęzyk(tablicaDostępnychJęzyków[który]);
+            console.log(tablicaJęzykówWStringach[który]+" "+który);
+            break;
+          }
         }
       }
     },[]);
