@@ -52,8 +52,8 @@ const OPrzygierrodzie = () => {
 
     return (
         <div className="zawartośćPodstrony" id="oNas">
-            <div >
-                <h1>Witamy w Przygierrodzie!</h1>
+            <div>
+                <h1 className="powitanie">Witamy w Przygierrodzie!</h1>
                 <hr></hr>
                 <h2>O Nas</h2>
                 <p>Jesteśmy (na chwilę obecną jednoosbową) polskim przedsiębiorstwem grotwórczym o wielkich ambicjach. Dążymy do stworzenia najlepszych i wnoszących nowe argumenty do rozmów produktów.</p>
@@ -61,8 +61,7 @@ const OPrzygierrodzie = () => {
             <hr></hr>
             <div id="naszeGry">
                 <h2>Nasze Gry</h2>
-                <p>dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd ddddddddddddddddddddddddddddddddddddd ddddddddddddddddddddddddddddddddddddddddddddddd 
-                    ddddddddddddddddddddddddddddddddddddddddddddddd dddddddddddddddddddddddd ddddddddddddddd dddddddddddddddddddddddddddddddddddd dddddddddddddddddddddddd</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eu mi in nisl egestas euismod eu commodo neque. Curabitur non nulla sem. Curabitur vitae blandit orci. Nullam id neque consequat, efficitur lectus vitae, interdum velit. Quisque hendrerit imperdiet rutrum. Ut et eros vitae sem faucibus placerat. Etiam est eros, varius in leo at, gravida efficitur mauris. Nulla a arcu nunc. Phasellus vel leo a mauris auctor cursus nec nec sapien. Curabitur ultricies blandit ante, sed blandit nibh sollicitudin sit amet. Nam leo mi, suscipit at ex eu, lacinia dapibus mi. Nulla facilisi. Mauris magna est, elementum nec eros id, malesuada accumsan nisl. Donec commodo lacus justo, non ultricies felis molestie in. Suspendisse potenti.</p>
             </div>
             <hr></hr>
             <div id="kontakt">

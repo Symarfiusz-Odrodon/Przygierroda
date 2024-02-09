@@ -6,6 +6,7 @@ import { useState, createContext, useEffect } from 'react';
 import { Context } from 'vm';
 import { useCookies } from 'react-cookie';
 import { WyskakująceOkienko } from './komponenty/WyskakująceOkienko';
+import Tłumaczenia from './komponenty/Tłumaczenia';
 
 import logo from'./zdjęcia/logo.png';
 
@@ -21,6 +22,7 @@ import Regulamin from './podstrony/regulamin';
 
 
 function App() {
+  Tłumaczenia();
 
   const [ciasteczka, ustawCiasteczka] = useCookies(["czyPokazacOkienko","czyZezwalaNaZPU","czyZezwalaNaZAI","jakiJezyk"]);
   useEffect(() => {
@@ -36,7 +38,7 @@ function App() {
   }, [ciasteczka.czyPokazacOkienko == null]);
   
 
-  const [używanyJęzyk, zmieńJęzyk] = useUżywanyJęzyk();
+  const [używanyJęzyk, nazwa, zmieńJęzyk] = useUżywanyJęzyk();
   
   return (
     <Router><ZanieśDoKotwicy/>

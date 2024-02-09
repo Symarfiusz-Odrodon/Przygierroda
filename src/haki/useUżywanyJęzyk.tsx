@@ -8,7 +8,7 @@ import rosyjski from '../zdjęcia/ikony/russia-flag-icon.png'
 
 var który: number = 0;
 
-export const useUżywanyJęzyk = (): [string, () => void] => {
+export const useUżywanyJęzyk = (): [string, string, () => void] => {
   const [ciasteczka, ustawCiasteczka] = useCookies([ "czyZezwalaNaZPU","jakiJezyk"]);
 
     useEffect(()=>{
@@ -42,5 +42,5 @@ export const useUżywanyJęzyk = (): [string, () => void] => {
       
     };
 
-    return [używanyJęzyk, zmieńJęzyk];
+    return [używanyJęzyk,  tablicaJęzykówWStringach[który], zmieńJęzyk];
 };
