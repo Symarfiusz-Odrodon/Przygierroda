@@ -32,20 +32,17 @@ body
                     height: 100vh
                 
                 #głównaCzęść
-                    width: calc(100% - ($wymiaryPaskaTech / 5) - ((100% - $wymiaryPaskaTech) / 8))
-                    #zapychaczŚrodkowy
-                        height:$wymiaryPaskaTech
-                        width: 100%
+                    width: calc(100% - ($wymiaryPaskaTech / 5 * 2))
                     #głównaŚrodkowa
                         width: 100%
-                        height: calc(100vh - $wymiaryPaskaTech)
+                        height: 100vh
                         overflow-y: scroll
                         overflow-x: hidden
                         &::-webkit-scrollbar
                            display: none 
 
                 #prawaDrzewo
-                    width: calc((100% - $wymiaryPaskaTech) / 8)
+                    width: calc($wymiaryPaskaTech / 5)
                     background-color: brown
                     height: 100vh
 
@@ -67,6 +64,9 @@ body
                     display: flex
                     flex-wrap: wrap
                     justify-content: center
+
+                    .Upychacz
+                        width: calc(25% - $wymiaryPaskaTech/5*2)
 
                     a
                         width: 25%

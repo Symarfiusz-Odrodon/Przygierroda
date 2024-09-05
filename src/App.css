@@ -27,15 +27,11 @@ body #root .App #stałaCzęść #lewaNauka {
   height: 100vh;
 }
 body #root .App #stałaCzęść #głównaCzęść {
-  width: calc(100% - 40px - (100% - 200px) / 8);
-}
-body #root .App #stałaCzęść #głównaCzęść #zapychaczŚrodkowy {
-  height: 200px;
-  width: 100%;
+  width: calc(100% - 80px);
 }
 body #root .App #stałaCzęść #głównaCzęść #głównaŚrodkowa {
   width: 100%;
-  height: calc(100vh - 200px);
+  height: 100vh;
   overflow-y: scroll;
   overflow-x: hidden;
 }
@@ -43,7 +39,7 @@ body #root .App #stałaCzęść #głównaCzęść #głównaŚrodkowa::-webkit-sc
   display: none;
 }
 body #root .App #stałaCzęść #prawaDrzewo {
-  width: calc((100% - 200px) / 8);
+  width: 40px;
   background-color: brown;
   height: 100vh;
 }
@@ -65,6 +61,9 @@ body #root .App #przyklejonaCzęść nav {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+}
+body #root .App #przyklejonaCzęść nav .Upychacz {
+  width: calc(25% - 80px);
 }
 body #root .App #przyklejonaCzęść nav a {
   width: 25%;
