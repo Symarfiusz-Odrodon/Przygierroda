@@ -2,16 +2,32 @@
     font-family: mina-bold
     src: url("../../public/czcionka/Mina-Bold.ttf")
 
-.zawartośćPodstrony
-    position: relative
+#zawartośćPodstrony
     font-family: mina-bold
     color: white
-    width: 100% 
     padding: 0
-    margin-top: 200px
-    background: rgba( 72, 72, 72, 75%)
-    border-radius: 25px
     
-    h1
+
+    #powitanie
+        height: 200px
+        max-height: 200px
+        margin: calc((90vh - 200px)/2 + 100px) auto calc((90vh - 200px)/2 - 100px) auto
         text-align: center
-        margin: 0
+        font-size:  7vw
+    .wiadomości
+        display: flex
+        flex-direction: column
+        justify-content: center
+        background: rgba( 72, 72, 72)
+        p
+            margin-top: 0
+        h2
+            width:(auto !important)
+            position: relative
+            top: -25px
+            margin: 0 auto
+            text-align: center
+            font-size: 4vw
+            background-color:  rgba( 72, 72, 72)
+
+    

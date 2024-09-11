@@ -3,17 +3,33 @@
   font-family: mina-bold;
   src: url("../../public/czcionka/Mina-Bold.ttf");
 }
-.zawartośćPodstrony {
-  position: relative;
+#zawartośćPodstrony {
   font-family: mina-bold;
   color: white;
-  width: 100%;
   padding: 0;
-  margin-top: 200px;
-  background: rgba(72, 72, 72, 0.75);
-  border-radius: 25px;
 }
-.zawartośćPodstrony h1 {
+#zawartośćPodstrony #powitanie {
+  height: 200px;
+  max-height: 200px;
+  margin: calc((90vh - 200px) / 2 + 100px) auto calc((90vh - 200px) / 2 - 100px) auto;
   text-align: center;
-  margin: 0;
+  font-size: 7vw;
+}
+#zawartośćPodstrony .wiadomości {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: rgb(72, 72, 72);
+}
+#zawartośćPodstrony .wiadomości p {
+  margin-top: 0;
+}
+#zawartośćPodstrony .wiadomości h2 {
+  width: auto !important;
+  position: relative;
+  top: -25px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 4vw;
+  background-color: rgb(72, 72, 72);
 }/*# sourceMappingURL=podstrony.css.map */

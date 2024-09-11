@@ -51,20 +51,18 @@ const OPrzygierrodzie = () => {
     };
 
     return (
-        <div className="zawartośćPodstrony" id="oNas">
-            <div>
-                <h1 className="powitanie">Witamy w Przygierrodzie!</h1>
-                <hr></hr>
+        <div id="zawartośćPodstrony" >
+            <h1 id="powitanie">Witamy w Przygierrodzie!</h1>
+
+            <div id="oNas" className="wiadomości">
                 <h2>O Nas</h2>
                 <p>Jesteśmy (na chwilę obecną jednoosbową) polskim przedsiębiorstwem grotwórczym o wielkich ambicjach. Dążymy do stworzenia najlepszych i wnoszących nowe argumenty do rozmów produktów.</p>
             </div>
-            <hr></hr>
-            <div id="naszeGry">
+            <div id="naszeGry" className="wiadomości">
                 <h2>Nasze Gry</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eu mi in nisl egestas euismod eu commodo neque. Curabitur non nulla sem. Curabitur vitae blandit orci. Nullam id neque consequat, efficitur lectus vitae, interdum velit. Quisque hendrerit imperdiet rutrum. Ut et eros vitae sem faucibus placerat. Etiam est eros, varius in leo at, gravida efficitur mauris. Nulla a arcu nunc. Phasellus vel leo a mauris auctor cursus nec nec sapien. Curabitur ultricies blandit ante, sed blandit nibh sollicitudin sit amet. Nam leo mi, suscipit at ex eu, lacinia dapibus mi. Nulla facilisi. Mauris magna est, elementum nec eros id, malesuada accumsan nisl. Donec commodo lacus justo, non ultricies felis molestie in. Suspendisse potenti.</p>
             </div>
-            <hr></hr>
-            <div id="kontakt">
+            <div id="kontakt" className="wiadomości">
                 <h2>Kontakt</h2>
                 <p>Na chwilę obecną nie zamierzamy podawać naszego adresu e-mail. Jednakże możesz wypełnićten formularz, a efekt będzie taki sam!</p>
                 <form onSubmit={wyślij}>
@@ -90,7 +88,7 @@ const OPrzygierrodzie = () => {
 
             </div>
             <hr />
-            <div id="media">
+            <div id="media" className="wiadomości">
                 <h2>Media Społecznościowe</h2>
                 <p>Jeśli byłbyś tym zainteresowany, mógłbyś nas zaobserwować na jednym z tych mediów społecznościowych! Nie pożałujesz tego!</p>
             </div>

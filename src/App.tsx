@@ -52,7 +52,6 @@ function App() {
           <Link to="/#naszeGry"><div className="przyciskNaglowka">Nasze Gry</div></Link>
           <Link to="/#kontakt"><div className="przyciskNaglowka">Kontakt</div></Link>
           <Link to="/#media"><div className="przyciskNaglowka">Media Społecznościowe</div></Link>
-          <div className='Upychacz'></div>
           <Link to="/wesprzyjnas"><div className="przyciskNaglowka">Wesprzyj Nas!</div></Link>
           <Link to="/praca"><div className="przyciskNaglowka">Praca</div></Link>
           <Link to="/regulamin"><div className="przyciskNaglowka">Regulamin</div></Link>

@@ -60,10 +60,7 @@ body #root .App #przyklejonaCzęść nav {
   height: 20vh;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-}
-body #root .App #przyklejonaCzęść nav .Upychacz {
-  width: calc(25% - 80px);
+  justify-content: end;
 }
 body #root .App #przyklejonaCzęść nav a {
   width: 25%;
