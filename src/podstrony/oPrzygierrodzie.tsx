@@ -87,7 +87,6 @@ const OPrzygierrodzie = () => {
                 </form>
 
             </div>
-            <hr />
             <div id="media" className="wiadomości">
                 <h2>Media Społecznościowe</h2>
                 <p>Jeśli byłbyś tym zainteresowany, mógłbyś nas zaobserwować na jednym z tych mediów społecznościowych! Nie pożałujesz tego!</p>

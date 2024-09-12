@@ -25,7 +25,7 @@ export const useUżywanyJęzyk = (): [string, string, () => void] => {
     },[]);
 
     const tablicaDostępnychJęzyków: Array<string>  = [polski, angielski, niemiecki, rosyjski];
-    var tablicaJęzykówWStringach: Array<string> = ["polski", "english", "deutsch", "русский"]
+    var tablicaJęzykówWStringach: Array<string> = ["pl", "en", "de", "ru"]
     
     const [używanyJęzyk, ustawJęzyk] = useState<string>(tablicaDostępnychJęzyków[który]);
 

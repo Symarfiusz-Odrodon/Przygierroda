@@ -6,7 +6,8 @@ import { useState, createContext, useEffect } from 'react';
 import { Context } from 'vm';
 import { useCookies } from 'react-cookie';
 import { WyskakująceOkienko } from './komponenty/WyskakująceOkienko';
-import Tłumaczenia from './komponenty/Tłumaczenia';
+import "./i18n";
+import { useTranslation } from 'react-i18next';
 
 import logo from'./zdjęcia/logo.png';
 
@@ -22,7 +23,10 @@ import Regulamin from './podstrony/regulamin';
 
 
 function App() {
-  Tłumaczenia();
+  const { t, i18n } = useTranslation();
+  useEffect(() => {
+    i18n.changeLanguage(navigator.language);
+  }, []);
 
   const [ciasteczka, ustawCiasteczka] = useCookies(["czyPokazacOkienko","czyZezwalaNaZPU","czyZezwalaNaZAI","jakiJezyk"]);
   useEffect(() => {
@@ -48,7 +52,7 @@ function App() {
           <div className="logo"><img className="zdjęcieLogo" width={200} height={200} src={logo} alt="logo" /></div>
         </header>
         <nav>
-          <Link to="/#oNas"><div className="przyciskNaglowka">O Nas</div></Link>
+          <Link to="/#oNas"><div className="przyciskNaglowka">{t("oNas")}</div></Link>
           <Link to="/#naszeGry"><div className="przyciskNaglowka">Nasze Gry</div></Link>
           <Link to="/#kontakt"><div className="przyciskNaglowka">Kontakt</div></Link>
           <Link to="/#media"><div className="przyciskNaglowka">Media Społecznościowe</div></Link>
