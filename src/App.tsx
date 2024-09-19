@@ -56,9 +56,9 @@ function App() {
           <Link to="/#naszeGry"><div className="przyciskNaglowka">{t("naszeGry")}</div></Link>
           <Link to="/#kontakt"><div className="przyciskNaglowka">{t("kontakt")}</div></Link>
           <Link to="/#media"><div className="przyciskNaglowka">{t("media")}</div></Link>
-          <Link to="/wesprzyjnas"><div className="przyciskNaglowka">Wesprzyj Nas!</div></Link>
-          <Link to="/praca"><div className="przyciskNaglowka">Praca</div></Link>
-          <Link to="/regulamin"><div className="przyciskNaglowka">Regulamin</div></Link>
+          <Link to="/wesprzyjnas"><div className="przyciskNaglowka">{t("wesprzyjNas")}</div></Link>
+          <Link to="/praca"><div className="przyciskNaglowka">{t("praca")}</div></Link>
+          <Link to="/regulamin"><div className="przyciskNaglowka">{t("regulamin")}</div></Link>
         </nav>
       </div>
       <div className="przybocznyPasek">

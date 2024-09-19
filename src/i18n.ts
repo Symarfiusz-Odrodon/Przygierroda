@@ -23,6 +23,10 @@ i18n
             naszeGry: "Nasze Gry",
             kontakt: "Kontakt",
             media: "Strony Społecznościowe",
+            wesprzyjNas: "Wesprzyj Nas",
+            praca: "Praca",
+            regulamin: "Regulamin",
+            witamy: "Witamy w Przygierrodzie!",
         },
       },
       en: {
@@ -31,6 +35,10 @@ i18n
             naszeGry: "Our Games",
             kontakt: "Contact",
             media: "Social Medias",
+            wesprzyjNas: "Support us!",
+            praca: "Jobs",
+            regulamin: "Bylaws",
+            witamy: "Welcome to Gamesnature!",
         },
       },
       de: {
@@ -39,6 +47,10 @@ i18n
             naszeGry: "Unsere Spielen",
             kontakt: "Kontakt",
             media: "Soziale Medien",
+            wesprzyjNas: "Unterstützen Sie uns!",
+            praca: "Jobs",
+            regulamin: "Satzung",
+            witamy: "Willkommen nach Spielensnatur!",
         },
       },
       ru: {
@@ -47,6 +59,10 @@ i18n
             naszeGry: "Наши Игры",
             kontakt: "Контакт",
             media: "Социальные Сети",
+            wesprzyjNas: "Поддержите нас!",
+            praca: "Работа",
+            regulamin: "Правила",
+            witamy: "Привет в приигрроде!",
         },
       },
     }
