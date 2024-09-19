@@ -12,7 +12,7 @@ i18n
   // for all options read: https://www.i18next.com/overview/configuration-options
   .init({
     debug: true,
-    fallbackLng: 'de',
+    fallbackLng: 'pl',
     interpolation: {
       escapeValue: false, // not needed for react as it escapes by default
     },
@@ -20,21 +20,33 @@ i18n
       pl: {
         translation: {
             oNas:"O Nas",
+            naszeGry: "Nasze Gry",
+            kontakt: "Kontakt",
+            media: "Strony Społecznościowe",
         },
       },
       en: {
         translation: {
-            oNas:"About us"
+            oNas:"About us",
+            naszeGry: "Our Games",
+            kontakt: "Contact",
+            media: "Social Medias",
         },
       },
       de: {
         translation: {
             oNas:"Über uns",
+            naszeGry: "Unsere Spielen",
+            kontakt: "Kontakt",
+            media: "Soziale Medien",
         },
       },
       ru: {
         translation: {
-            oNas:  "О нас"
+            oNas:  "О нас",
+            naszeGry: "Наши Игры",
+            kontakt: "Контакт",
+            media: "Социальные Сети",
         },
       },
     }
