@@ -2,7 +2,7 @@ import './App.css';
 
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { useState, createContext, useEffect } from 'react';
-//import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { Nawigacja } from './komponenty/Nawigacja';
 import { Context } from 'vm';
 import { useCookies } from 'react-cookie';
 import { WyskakująceOkienko } from './komponenty/WyskakująceOkienko';
@@ -47,15 +47,7 @@ function App() {
         <header>
           <div className="logo"><img className="zdjęcieLogo" width={200} height={200} src={logo} alt="logo" /></div>
         </header>
-        <nav>
-          <Link to="/#oNas"><div className="przyciskNaglowka">O Nas</div></Link>
-          <Link to="/#naszeGry"><div className="przyciskNaglowka">Nasze Gry</div></Link>
-          <Link to="/#kontakt"><div className="przyciskNaglowka">Kontakt</div></Link>
-          <Link to="/#media"><div className="przyciskNaglowka">Media Społecznościowe</div></Link>
-          <Link to="/wesprzyjnas"><div className="przyciskNaglowka">Wesprzyj Nas!</div></Link>
-          <Link to="/praca"><div className="przyciskNaglowka">Praca</div></Link>
-          <Link to="/regulamin"><div className="przyciskNaglowka">Regulamin</div></Link>
-        </nav>
+        <Nawigacja/>
       </div>
       <div className="przybocznyPasek">
         <WyskakująceOkienko></WyskakująceOkienko>
