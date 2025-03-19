@@ -69,26 +69,32 @@ const OPrzygierrodzie = () => {
                 <div className="wiadomości">
                     <h2>Kontakt</h2>
                     <p>Na chwilę obecną nie zamierzamy podawać naszego adresu e-mail. Jednakże możesz wypełnićten formularz, a efekt będzie taki sam!</p>
-                    <form onSubmit={wyślij}>
-                        <select {...register("Zwrot")} name="zwrotGrzecznościowy" required>
-                            <option value="" disabled selected> --zwrot grzecznościowy-- </option>
-                            <option value="Pan">Pan</option>
-                            <option value="Pani">Pani</option>
-                            <option value="Nie trzeba ;)">Nie trzeba ;)</option>
-                        </select>
-                        <p>{errors.Zwrot?.message}</p>
-                        <input type="text" placeholder="Imię"  {...register("Imię")} name="imię" required/>
-                        <p>{errors.Imię?.message}</p>
-                        <input type="text" placeholder="Nazwisko" {...register("Nazwisko")} name="nazwisko" required/>
-                        <p>{errors.Nazwisko?.message}</p>
-                        <input type="email" placeholder="Email" {...register("Email")} name="adresEmail" required/>
-                        <p>{errors.Email?.message}</p>
-                        <p><p>{errors.Imię?.message}</p></p>
-                        <textarea placeholder="Twoja wiadomość" cols={30} rows={10} {...register("Wiadomość")} name="treść" required></textarea>
-                        <p>{errors.Wiadomość?.message}</p>
-                        <input type="submit" placeholder="Potwierdź" onClick={() => sprawdźCzyPoprawne()}/>
-                        {czyPoprawne && <p className="success-message">Wiadomość pomyślnie wysłana!</p>}
-                    </form>
+                    <div className="formularz">
+                        <form onSubmit={wyślij}>
+                            <div>
+                                <select {...register("Zwrot")} name="zwrotGrzecznościowy" required>
+                                    <option value="" disabled selected> --zwrot grzecznościowy-- </option>
+                                    <option value="Pan">Pan</option>
+                                    <option value="Pani">Pani</option>
+                                    <option value="Nie trzeba ;)">Nie trzeba ;)</option>
+                                </select>
+                                <p>{errors.Zwrot?.message}</p>
+                                <input type="text" placeholder="Imię"  {...register("Imię")} name="imię" required/>
+                                <p>{errors.Imię?.message}</p>
+                                <input type="text" placeholder="Nazwisko" {...register("Nazwisko")} name="nazwisko" required/>
+                                <p>{errors.Nazwisko?.message}</p>
+                                <input type="email" placeholder="Email" {...register("Email")} name="adresEmail" required/>
+                                <p>{errors.Email?.message}</p>
+                                <p>{errors.Imię?.message}</p>
+                                <input type="submit" placeholder="Potwierdź" onClick={() => sprawdźCzyPoprawne()}/>
+                                {czyPoprawne && <p className="success-message">Wiadomość pomyślnie wysłana!</p>}
+                            </div>
+                            <div>
+                                <textarea placeholder="Twoja wiadomość" cols={30} rows={10} {...register("Wiadomość")} name="treść" required></textarea>
+                                <p>{errors.Wiadomość?.message}</p>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
             <div id="media">

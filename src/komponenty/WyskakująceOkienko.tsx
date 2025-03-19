@@ -40,7 +40,7 @@ export const WyskakująceOkienko = () => {
             <div id="wnętrze">
               <div id="krzyżyk" onClick={() => zamknijOkienko()}><img src={krzyżyk} alt="zamknij" /></div>
               
-              <h1>Używamy ciasteczek!</h1>
+              <h1>Używamy ciasteczka!</h1>
               <b><p>I choć wierzemy, że czasami trzeba osłodzić swoje życie, tak też rozumiemy Twoją chęć prywatności i ją szanujemy.</p></b>
               
               <div id="wajchy">
