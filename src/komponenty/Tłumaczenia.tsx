@@ -1,5 +1,6 @@
 import {useState, useEffect} from "react";
 import { useUżywanyJęzyk } from '../haki/useUżywanyJęzyk';
+import '../komponenty/Tłumaczenia.css';
 
 import polski from '../zdjęcia/ikony/poland-flag-icon.png';
 import angielski from '../zdjęcia/ikony/united-kingdom-flag-icon.png'
@@ -22,23 +23,19 @@ const Tłumaczenia = () => {
     }
     
     return (
-        <div>
-            <a onClick={() => ustawOtwarcie(!czyOtwarty)}>
-                <div className="ustawieniaStrony">
-                    <img src={(używanyJęzyk as string)} alt={nazwa as string}/>
-                </div>
-            </a>
+        <div id="całokształt">
+            <div className="ustawieniaStrony" onClick={() => ustawOtwarcie(!czyOtwarty)}>
+                <img src={(używanyJęzyk as string)} alt={nazwa as string}/>
+            </div>
 
-            {czyOtwarty && <div id="tłumaczenia">
+            <div id="rozwijanaLista" className={czyOtwarty ? 'otwarte' : ''}>
                 {dostępneJęzyki.map((język, index) => {
                     if (używanyJęzyk !== język.ikona)
-                    return <a key={index} onClick={() => ustawJęzyk(język.ikona)}>
-                        <div className="ustawieniaStrony">
+                        return <div key={index} onClick={() => ustawJęzyk(język.ikona)} className="ustawieniaStrony ${czyOtwarty ? 'otwarte' : ''}">
                             <img src={język.ikona} alt="język"/>
                         </div>
-                    </a> 
-                })}
-            </div>}
+                })}   
+            </div>
         </div>
     );
 }
