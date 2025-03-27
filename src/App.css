@@ -70,6 +70,15 @@ body #root .App #przyklejonaCzęść nav a {
   color: white;
   font-size: 25px;
   background-color: green;
+  position: relative;
+  transform: translateY(0);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+body #root .App #przyklejonaCzęść nav a:hover {
+  transform: translateY(15px) scaleY(1.15);
+  background-color: #004d00;
+  z-index: 10;
+  margin-top: -10px;
 }
 body #root .App #przyklejonaCzęść nav a div {
   width: 100%;

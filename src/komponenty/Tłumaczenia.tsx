@@ -1,26 +1,46 @@
 import {useState, useEffect} from "react";
-import * as XLSX from "xlsx"
 import { useUżywanyJęzyk } from '../haki/useUżywanyJęzyk';
 
-const Tłumaczenia = () => {
-    const [tłumaczenia, ustawTłumaczenia] = useState({});
+import polski from '../zdjęcia/ikony/poland-flag-icon.png';
+import angielski from '../zdjęcia/ikony/united-kingdom-flag-icon.png'
+import niemiecki from '../zdjęcia/ikony/germany-flag-icon.png'
+import rosyjski from '../zdjęcia/ikony/russia-flag-icon.png'
 
-    useEffect(()=>{
-        const czytnik = new FileReader();
-        czytnik.readAsBinaryString(new File([""], "../../public/wersjeStrony.xlsx"));
-        
-        czytnik.onload = async (e) => {
-            const dane = e.target?.result;
-            console.log(dane);
-            const workbook = XLSX.read(dane, {type: "binary"});
-            const sheetName = workbook.SheetNames[0];
-            const sheet = workbook.Sheets[sheetName];
-            const parsedData = XLSX.utils.sheet_to_json(sheet);
-            ustawTłumaczenia(parsedData);
-            console.log(tłumaczenia);
-        }
-    },[]);
+const Tłumaczenia = () => {
     const [używanyJęzyk, nazwa, zmieńJęzyk] = useUżywanyJęzyk();
+    const [czyOtwarty, ustawOtwarcie] = useState(false);
+    const dostępneJęzyki = [
+        {język: "Polski", ikona: polski},
+        {język: "Angielski", ikona: angielski},
+        {język: "Niemiecki", ikona: niemiecki},
+        {język: "Rosyjski", ikona: rosyjski}
+    ];
+
+    const ustawJęzyk = (ikona: string) => {
+        zmieńJęzyk(ikona);
+        ustawOtwarcie(false);
+    }
+    
+    return (
+        <div>
+            <a onClick={() => ustawOtwarcie(!czyOtwarty)}>
+                <div className="ustawieniaStrony">
+                    <img src={(używanyJęzyk as string)} alt={nazwa as string}/>
+                </div>
+            </a>
+
+            {czyOtwarty && <div id="tłumaczenia">
+                {dostępneJęzyki.map((język, index) => {
+                    if (używanyJęzyk !== język.ikona)
+                    return <a key={index} onClick={() => ustawJęzyk(język.ikona)}>
+                        <div className="ustawieniaStrony">
+                            <img src={język.ikona} alt="język"/>
+                        </div>
+                    </a> 
+                })}
+            </div>}
+        </div>
+    );
 }
 
 export default Tłumaczenia;

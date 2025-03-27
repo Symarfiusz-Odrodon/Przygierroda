@@ -37,9 +37,6 @@ function App() {
     }
   }, [ciasteczka.czyPokazacOkienko == null]);
   
-
-  const [używanyJęzyk, nazwa, zmieńJęzyk] = useUżywanyJęzyk();
-  
   return (
     <Router><ZanieśDoKotwicy/>
     <div className="App">
@@ -51,11 +48,7 @@ function App() {
       </div>
       <div className="przybocznyPasek">
         <WyskakująceOkienko></WyskakująceOkienko>
-        <a onClick={() => zmieńJęzyk()}>
-          <div className="ustawieniaStrony">
-            <img src={(używanyJęzyk as string)} alt="język"/>
-          </div>
-        </a>
+        <Tłumaczenia></Tłumaczenia>
 
       </div>
       <div id="stałaCzęść">
