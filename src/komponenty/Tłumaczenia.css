@@ -10,18 +10,19 @@
 }
 #całokształt .ustawieniaStrony img {
   width: 30px;
-  height: 30px;
+  height: auto;
 }
 #całokształt #rozwijanaLista {
   position: absolute;
-  left: 0;
-  top: 0;
+  height: 30px;
+  left: 5px;
+  top: -5px;
   display: flex;
-  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.75);
   border-radius: 10px;
   padding: 5px;
   gap: 10px;
-  transform: translateX(-100%);
+  transform: translateX(-105%);
   transition: transform 0.3s ease;
   z-index: 1 !important;
 }
@@ -37,7 +38,7 @@
 }
 #całokształt #rozwijanaLista .ustawieniaStrony img {
   width: 30px;
-  height: 30px;
+  height: auto;
   transition: transform 0.2s ease;
 }
 #całokształt #rozwijanaLista .ustawieniaStrony img:hover {
