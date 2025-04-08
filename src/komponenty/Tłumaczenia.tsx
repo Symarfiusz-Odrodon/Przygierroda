@@ -1,5 +1,8 @@
-import {useState, useEffect} from "react";
+import {useState} from "react";
 import { useUżywanyJęzyk } from '../haki/useUżywanyJęzyk';
+import { useTranslation } from 'react-i18next';
+import '../i18n'; // Importowanie i18n, aby mieć dostęp do tłumaczeń
+
 import '../komponenty/Tłumaczenia.css';
 
 import polski from '../zdjęcia/ikony/poland-flag-icon.png';
@@ -8,16 +11,22 @@ import niemiecki from '../zdjęcia/ikony/germany-flag-icon.png'
 import rosyjski from '../zdjęcia/ikony/russia-flag-icon.png'
 
 const Tłumaczenia = () => {
+    const{ i18n } = useTranslation();
+
     const [używanyJęzyk, nazwa, zmieńJęzyk] = useUżywanyJęzyk();
     const [czyOtwarty, ustawOtwarcie] = useState(false);
     const dostępneJęzyki = [
-        {język: "Polski", ikona: polski},
-        {język: "Angielski", ikona: angielski},
-        {język: "Niemiecki", ikona: niemiecki},
-        {język: "Rosyjski", ikona: rosyjski}
+        {język: "Polski", ikona: polski, kod:"pl"},
+        {język: "Angielski", ikona: angielski, kod:"en"},
+        {język: "Niemiecki", ikona: niemiecki, kod:"de"},
+        {język: "Rosyjski", ikona: rosyjski, kod:"ru"}
     ];
 
-    const ustawJęzyk = (ikona: string) => {
+    const ustawJęzyk = (kod: string, ikona: string) => {
+        // i18n.changeLanguage(kod).then(() => {
+        //     window.location.reload();
+        // });
+        i18n.changeLanguage(kod);
         zmieńJęzyk(ikona);
         ustawOtwarcie(false);
     }
@@ -31,7 +40,7 @@ const Tłumaczenia = () => {
             <div id="rozwijanaLista" className={czyOtwarty ? 'otwarte' : ''}>
                 {dostępneJęzyki.map((język, index) => {
                     if (używanyJęzyk !== język.ikona)
-                        return <div key={index} onClick={() => ustawJęzyk(język.ikona)} className="ustawieniaStrony ${czyOtwarty ? 'otwarte' : ''}">
+                        return <div key={index} onClick={() => ustawJęzyk(język.kod, język.ikona)} className="ustawieniaStrony ${czyOtwarty ? 'otwarte' : ''}">
                             <img src={język.ikona} alt="język"/>
                         </div>
                 })}   

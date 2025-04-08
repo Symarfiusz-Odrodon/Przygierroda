@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
 interface NavItem {
@@ -6,8 +7,10 @@ interface NavItem {
 }
 
 export const Nawigacja = () => {
+  const { t } = useTranslation();
+
   const menuItems: NavItem[] = [
-    { path: '/#oNas', label: 'O Nas' },
+    { path: '/#oNas', label: t('nawiPasek.oNas') },
     { path: '/#naszeGry', label: 'Nasze Gry' },
     { path: '/#kontakt', label: 'Kontakt' },
     { path: '/#media', label: 'Media' },

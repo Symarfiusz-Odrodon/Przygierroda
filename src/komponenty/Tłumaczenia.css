@@ -19,7 +19,8 @@
   top: -5px;
   display: flex;
   background-color: rgba(0, 0, 0, 0.75);
-  border-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
   padding: 5px;
   gap: 10px;
   transform: translateX(-105%);

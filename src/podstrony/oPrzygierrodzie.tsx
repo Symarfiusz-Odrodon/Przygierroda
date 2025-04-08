@@ -1,14 +1,16 @@
 import "./podstrony.css";
+
 import { useForm } from "react-hook-form";
 import * as yup from "yup"
 import {yupResolver} from "@hookform/resolvers/yup"
 import emailjs from "@emailjs/browser";
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 var czyPoprawne: boolean = false;
 
 const OPrzygierrodzie = () => {
-
+    const {t} = useTranslation();
     const schemat  = yup.object().shape({
         Zwrot: yup.mixed().oneOf(["Pan", "Pani", "Nie trzeba ;)"]).notRequired(),
         Imię: yup.string().min(1).max(20).notRequired(),
@@ -55,7 +57,7 @@ const OPrzygierrodzie = () => {
             
             <div id="oNas">
                 <div className="wiadomości">
-                    <h2>O Nas</h2>
+                    <h2>{t('nawiPasek.oNas')}</h2>
                     <p>Jesteśmy (na chwilę obecną jednoosbową) polskim przedsiębiorstwem grotwórczym o wielkich ambicjach. Dążymy do stworzenia najlepszych i wnoszących nowe argumenty do rozmów produktów.</p>
                 </div>
             </div>
@@ -72,8 +74,7 @@ const OPrzygierrodzie = () => {
                     <div className="formularz">
                         <form onSubmit={wyślij}>
                             <div>
-                                <select {...register("Zwrot")} name="zwrotGrzecznościowy" required>
-                                    <option value="" disabled selected> --zwrot grzecznościowy-- </option>
+                                <select {...register("Zwrot")} name="zwrotGrzecznościowy" required defaultValue="--zwrot grzecznościowy--">
                                     <option value="Pan">Pan</option>
                                     <option value="Pani">Pani</option>
                                     <option value="Nie trzeba ;)">Nie trzeba ;)</option>
