@@ -11,12 +11,12 @@ export const Nawigacja = () => {
 
   const menuItems: NavItem[] = [
     { path: '/#oNas', label: t('nawiPasek.oNas') },
-    { path: '/#naszeGry', label: 'Nasze Gry' },
-    { path: '/#kontakt', label: 'Kontakt' },
-    { path: '/#media', label: 'Media' },
-    { path: '/wesprzyjnas', label: 'Wesprzyj Nas!' },
-    { path: '/praca', label: 'Praca' },
-    { path: '/regulamin', label: 'Regulamin' }
+    { path: '/#naszeGry', label: t('nawiPasek.naszeGry') },
+    { path: '/#kontakt', label: t('nawiPasek.kontakt') },
+    { path: '/#media', label: t('nawiPasek.media') },
+    { path: '/wesprzyjnas', label: t('nawiPasek.wesprzyj') },
+    { path: '/praca', label: t('nawiPasek.praca') },
+    { path: '/regulamin', label: t('nawiPasek.regulamin') }
   ];
 
   return (

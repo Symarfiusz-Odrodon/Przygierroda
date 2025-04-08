@@ -63,13 +63,13 @@ const OPrzygierrodzie = () => {
             </div>
             <div id="naszeGry">
                 <div className="wiadomości">
-                    <h2>Nasze Gry</h2>
+                    <h2>{t('nawiPasek.naszeGry')}</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eu mi in nisl egestas euismod eu commodo neque. Curabitur non nulla sem. Curabitur vitae blandit orci. Nullam id neque consequat, efficitur lectus vitae, interdum velit. Quisque hendrerit imperdiet rutrum. Ut et eros vitae sem faucibus placerat. Etiam est eros, varius in leo at, gravida efficitur mauris. Nulla a arcu nunc. Phasellus vel leo a mauris auctor cursus nec nec sapien. Curabitur ultricies blandit ante, sed blandit nibh sollicitudin sit amet. Nam leo mi, suscipit at ex eu, lacinia dapibus mi. Nulla facilisi. Mauris magna est, elementum nec eros id, malesuada accumsan nisl. Donec commodo lacus justo, non ultricies felis molestie in. Suspendisse potenti.</p>
                 </div>
             </div>
             <div id="kontakt">
                 <div className="wiadomości">
-                    <h2>Kontakt</h2>
+                    <h2>{t('nawiPasek.kontakt')}</h2>
                     <p>Na chwilę obecną nie zamierzamy podawać naszego adresu e-mail. Jednakże możesz wypełnićten formularz, a efekt będzie taki sam!</p>
                     <div className="formularz">
                         <form onSubmit={wyślij}>
@@ -100,7 +100,7 @@ const OPrzygierrodzie = () => {
             </div>
             <div id="media">
                 <div className="wiadomości">
-                    <h2>Media Społecznościowe</h2>
+                    <h2>{t('nawiPasek.media')}</h2>
                     <p>Jeśli byłbyś tym zainteresowany, mógłbyś nas zaobserwować na jednym z tych mediów społecznościowych! Nie pożałujesz tego!</p>
                 </div>
             </div>
