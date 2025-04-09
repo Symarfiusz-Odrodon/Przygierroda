@@ -100,7 +100,7 @@ const OPrzygierrodzie = () => {
             </div>
             <div id="media">
                 <div className="wiadomości">
-                    <h2>{t('nawiPasek.media')}</h2>
+                    <h2>{t('nawiPasek.mediaSp')}</h2>
                     <p>Jeśli byłbyś tym zainteresowany, mógłbyś nas zaobserwować na jednym z tych mediów społecznościowych! Nie pożałujesz tego!</p>
                 </div>
             </div>

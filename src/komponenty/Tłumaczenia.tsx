@@ -9,6 +9,7 @@ import polski from '../zdjęcia/ikony/poland-flag-icon.png';
 import angielski from '../zdjęcia/ikony/united-kingdom-flag-icon.png'
 import niemiecki from '../zdjęcia/ikony/germany-flag-icon.png'
 import rosyjski from '../zdjęcia/ikony/russia-flag-icon.png'
+import ListaJęzyków from "./ListaJęzyków";
 
 const Tłumaczenia = () => {
     const{ i18n } = useTranslation();
@@ -35,15 +36,6 @@ const Tłumaczenia = () => {
         <div id="całokształt">
             <div className="ustawieniaStrony" onClick={() => ustawOtwarcie(!czyOtwarty)}>
                 <img src={(używanyJęzyk as string)} alt={nazwa as string}/>
-            </div>
-
-            <div id="rozwijanaLista" className={czyOtwarty ? 'otwarte' : ''}>
-                {dostępneJęzyki.map((język, index) => {
-                    if (używanyJęzyk !== język.ikona)
-                        return <div key={index} onClick={() => ustawJęzyk(język.kod, język.ikona)} className="ustawieniaStrony ${czyOtwarty ? 'otwarte' : ''}">
-                            <img src={język.ikona} alt="język"/>
-                        </div>
-                })}   
             </div>
         </div>
     );

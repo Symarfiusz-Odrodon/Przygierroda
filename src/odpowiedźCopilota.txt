@@ -1,0 +1,135 @@
+Yes, you can use Context API to share the language-related state. Here's how to implement it:
+
+1. First, create a new context file:
+
+````typescript
+import { createContext, useContext, ReactNode } from 'react';
+
+interface JęzykKontekst {
+    czyOtwarty: boolean;
+    ustawOtwarcie: (stan: boolean) => void;
+    używanyJęzyk: string;
+    dostępneJęzyki: Array<{
+        język: string;
+        ikona: string;
+        kod: string;
+    }>;
+    ustawJęzyk: (kod: string, ikona: string) => void;
+}
+
+export const JęzykKontekst = createContext<JęzykKontekst | undefined>(undefined);
+
+export const useJęzykKontekst = () => {
+    const context = useContext(JęzykKontekst);
+    if (!context) {
+        throw new Error('useJęzykKontekst must be used within JęzykProvider');
+    }
+    return context;
+};
+````
+
+2. Modify the Tłumaczenia component to use context:
+
+````typescript
+import { useState } from "react";
+import { useUżywanyJęzyk } from '../haki/useUżywanyJęzyk';
+import { useTranslation } from 'react-i18next';
+import { JęzykKontekst } from '../kontekst/JęzykKontekst';
+// ...existing code...
+
+const Tłumaczenia = () => {
+    const { i18n } = useTranslation();
+    const [używanyJęzyk, nazwa, zmieńJęzyk] = useUżywanyJęzyk();
+    const [czyOtwarty, ustawOtwarcie] = useState(false);
+    const dostępneJęzyki = [
+        {język: "Polski", ikona: polski, kod:"pl"},
+        {język: "Angielski", ikona: angielski, kod:"en"},
+        {język: "Niemiecki", ikona: niemiecki, kod:"de"},
+        {język: "Rosyjski", ikona: rosyjski, kod:"ru"}
+    ];
+
+    const ustawJęzyk = (kod: string, ikona: string) => {
+        i18n.changeLanguage(kod);
+        zmieńJęzyk(ikona);
+        ustawOtwarcie(false);
+    };
+
+    return (
+        <JęzykKontekst.Provider 
+            value={{ 
+                czyOtwarty, 
+                ustawOtwarcie, 
+                używanyJęzyk, 
+                dostępneJęzyki, 
+                ustawJęzyk 
+            }}
+        >
+            <div id="całokształt">
+                <div className="ustawieniaStrony" onClick={() => ustawOtwarcie(!czyOtwarty)}>
+                    <img src={(używanyJęzyk as string)} alt={nazwa as string}/>
+                </div>
+            </div>
+        </JęzykKontekst.Provider>
+    );
+};
+````
+
+3. Update the ListaJęzyków component to use context:
+
+````typescript
+import { useJęzykKontekst } from '../kontekst/JęzykKontekst';
+import './ListaJęzyków.css';
+
+const ListaJęzyków = () => {
+    const { czyOtwarty, używanyJęzyk, dostępneJęzyki, ustawJęzyk } = useJęzykKontekst();
+
+    return(
+        <div id="rozwijanaLista" className={czyOtwarty ? 'otwarte' : ''}>
+            {dostępneJęzyki.map((język, index) => {
+                if (używanyJęzyk !== język.ikona)
+                    return (
+                        <div 
+                            key={język.kod} 
+                            onClick={() => ustawJęzyk(język.kod, język.ikona)} 
+                            className={`ustawieniaStrony ${czyOtwarty ? 'otwarte' : ''}`}
+                        >
+                            <img src={język.ikona} alt={język.język}/>
+                        </div>
+                    );
+                return null;
+            })}   
+        </div>
+    );
+};
+````
+
+4. Finally, update App.tsx:
+
+````typescript
+// ...existing code...
+    return (
+        <Router>
+            <ZanieśDoKotwicy/>
+            <div className="App">
+                <div id="przyklejonaCzęść" className="sticky">
+                    <header>
+                        <div className="logo">
+                            <img className="zdjęcieLogo" width={200} height={200} src={logo} alt="logo" />
+                        </div>
+                    </header>
+                    <Nawigacja/>
+                </div>
+                <div className="przybocznyPasek">
+                    <WyskakująceOkienko/>
+                    <Tłumaczenia/>
+                </div>
+                <ListaJęzyków/>
+                {/* ...rest of the code... */}
+            </div>
+        </Router>
+    );
+````
+
+Now ListaJęzyków can access all the necessary props through context, regardless of where it's placed in the component tree.
+
+Similar code found with 1 license type

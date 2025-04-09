@@ -1,0 +1,33 @@
+#rozwijanaLista {
+  position: fixed;
+  left: 0;
+  top: 90%;
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.75);
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: 5px 5px 5px 10px;
+  gap: 10px;
+  transform: translateX(-105%);
+  transition: transform 0.3s ease;
+  z-index: -1 !important;
+}
+#rozwijanaLista.otwarte {
+  transform: translateX(25%);
+}
+#rozwijanaLista .ustawieniaStrony {
+  opacity: 1;
+  transition: opacity 0.3s ease 0.2s;
+  padding: 5px !important;
+  height: 20px !important;
+}
+#rozwijanaLista .ustawieniaStrony.otwarte {
+  opacity: 1;
+}
+#rozwijanaLista .ustawieniaStrony img {
+  width: 30px;
+  transition: transform 0.2s ease;
+}
+#rozwijanaLista .ustawieniaStrony img:hover {
+  transform: scale(1.1);
+}/*# sourceMappingURL=ListaJęzyków.css.map */

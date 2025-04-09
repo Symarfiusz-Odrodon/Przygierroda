@@ -11,37 +11,4 @@
 #całokształt .ustawieniaStrony img {
   width: 30px;
   height: auto;
-}
-#całokształt #rozwijanaLista {
-  position: absolute;
-  height: 30px;
-  left: 5px;
-  top: -5px;
-  display: flex;
-  background-color: rgba(0, 0, 0, 0.75);
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-  padding: 5px;
-  gap: 10px;
-  transform: translateX(-105%);
-  transition: transform 0.3s ease;
-  z-index: 1 !important;
-}
-#całokształt #rozwijanaLista.otwarte {
-  transform: translateX(25%);
-}
-#całokształt #rozwijanaLista .ustawieniaStrony {
-  opacity: 1;
-  transition: opacity 0.3s ease 0.2s;
-}
-#całokształt #rozwijanaLista .ustawieniaStrony.otwarte {
-  opacity: 1;
-}
-#całokształt #rozwijanaLista .ustawieniaStrony img {
-  width: 30px;
-  height: auto;
-  transition: transform 0.2s ease;
-}
-#całokształt #rozwijanaLista .ustawieniaStrony img:hover {
-  transform: scale(1.1);
 }/*# sourceMappingURL=Tłumaczenia.css.map */
