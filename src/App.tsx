@@ -50,12 +50,6 @@ function App() {
         <WyskakująceOkienko></WyskakująceOkienko>
         <Tłumaczenia></Tłumaczenia>
       </div>
-      <ListaJęzyków
-        czyOtwarty={czyOtwarty}
-        używanyJęzyk={używanyJęzyk as string}
-        dostępneJęzyki={dostępneJęzyki}
-        ustawJęzyk={ustawJęzyk}
-      />
       <div id="stałaCzęść">
         <section id="lewaNauka"></section>
         <section id="głównaCzęść">
