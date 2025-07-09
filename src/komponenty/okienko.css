@@ -3,34 +3,30 @@
   font-family: mina-bold;
   src: url("../../public/czcionka/Mina-Bold.ttf");
 }
-#główny {
+#wnętrze {
   font-family: mina-bold;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
+  top: calc(50% - 225px);
+  left: 40px;
   position: fixed;
-  z-index: 10;
-  display: flex;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
+  z-index: 2;
   background: rgba(118, 123, 141, 0.75);
-}
-#główny #wnętrze {
-  position: relative;
   width: 400px;
-  height: auto;
+  height: 450px;
   padding: 10px 50px;
-  border-radius: 10px;
+  border-radius: 0 10px 10px 0;
   text-align: center;
   background-color: white;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
 }
-#główny #wnętrze #przyciski {
+#wnętrze.otwarte {
+  transform: translateX(0%);
+}
+#wnętrze #przyciski {
   display: flex;
   justify-content: space-around;
 }
-#główny #wnętrze #przyciski button {
+#wnętrze #przyciski button {
   background-color: #2196f3;
   border: none;
   color: white;
@@ -43,16 +39,16 @@
   cursor: pointer;
   transition-duration: 0.5s;
 }
-#główny #wnętrze #przyciski button:hover {
+#wnętrze #przyciski button:hover {
   background-color: #0f75c8;
 }
-#główny #wnętrze #przyciski button:active {
+#wnętrze #przyciski button:active {
   transition-duration: 0s;
   border: #0f75c8 solid 3px;
   background-color: #fff;
   color: #2196f3;
 }
-#główny #wnętrze #krzyżyk {
+#wnętrze #krzyżyk {
   max-width: 20px;
   max-height: 20px;
   position: absolute;
@@ -61,42 +57,42 @@
   transition-duration: 0.5s;
   border-radius: 50%;
 }
-#główny #wnętrze #krzyżyk:hover {
+#wnętrze #krzyżyk:hover {
   background-color: rgba(118, 123, 141, 0.75);
 }
-#główny #wnętrze #krzyżyk img {
+#wnętrze #krzyżyk img {
   height: 20px;
 }
-#główny #wnętrze #wajchy {
+#wnętrze #wajchy {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
 }
-#główny #wnętrze #wajchy p {
+#wnętrze #wajchy p {
   width: 80%;
 }
-#główny #wnętrze #wajchy .wajcha {
+#wnętrze #wajchy .wajcha {
   position: relative;
   display: inline-block;
   width: 60px;
   height: 34px;
 }
-#główny #wnętrze #wajchy .wajcha input {
+#wnętrze #wajchy .wajcha input {
   opacity: 0;
   width: 0;
   height: 0;
 }
-#główny #wnętrze #wajchy .wajcha input:checked + .suwak {
+#wnętrze #wajchy .wajcha input:checked + .suwak {
   background-color: #2196f3;
 }
-#główny #wnętrze #wajchy .wajcha input:focus + .suwak {
+#wnętrze #wajchy .wajcha input:focus + .suwak {
   box-shadow: 0 0 1px #2196F3;
 }
-#główny #wnętrze #wajchy .wajcha input:checked + .suwak::before {
+#wnętrze #wajchy .wajcha input:checked + .suwak::before {
   transform: translateX(26px);
 }
-#główny #wnętrze #wajchy .wajcha .suwak {
+#wnętrze #wajchy .wajcha .suwak {
   position: absolute;
   cursor: pointer;
   top: 0;
@@ -106,7 +102,7 @@
   background-color: #ccc;
   transition: 0.4s;
 }
-#główny #wnętrze #wajchy .wajcha .suwak::before {
+#wnętrze #wajchy .wajcha .suwak::before {
   position: absolute;
   content: "";
   height: 26px;

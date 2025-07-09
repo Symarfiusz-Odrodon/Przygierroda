@@ -1,25 +1,26 @@
 import "./okienko.css"
 
-import { useState } from "react";
-import Popup from "reactjs-popup";
+import { Dispatch, useState } from "react";
 
-import ciasteczko from '../zdjęcia/ikony/cookies-icon.png';
 import krzyżyk from "../zdjęcia/ikony/krzyżyk.png"
 import { useCookies } from "react-cookie";
 
 // export const [czyZezwoliłNaZapamiętywaniePreferencji, ustawPreferencjeOZP] = useState<boolean>(true);
 // export const [czyZezwoliłNaZbieranieDanych, ustawPreferencjeOZD] = useState<boolean>(true);
 
-export const WyskakująceOkienko = () => {
-    const [ciasteczka, ustawCiasteczka] = useCookies(["czyPokazacOkienko","czyZezwalaNaZPU","czyZezwalaNaZAI"]);
+interface Props {
+    czyOtwarty?: boolean;
+    ustawWidocznośćCiastek?: Dispatch<React.SetStateAction<boolean>>;
+}
+
+export const WyskakująceOkienko = ({ czyOtwarty, ustawWidocznośćCiastek }: Props) => {
+    const [ciasteczka, ustawCiasteczka] = useCookies(["czyZezwalaNaZPU","czyZezwalaNaZAI"]);
     
-    const [krzyżykOkienka, ustawKrzyżykOkienka] = useState<boolean>(ciasteczka.czyPokazacOkienko);
     const [zezwolenieNaZAI, ustawZezwolenieZAI] = useState<boolean>(ciasteczka.czyZezwalaNaZAI);
     const [zezwolenieNaZPU, ustawZezwolenieZPU] = useState<boolean>(ciasteczka.czyZezwalaNaZPU);
 
     const zamknijOkienko = (czyZatwierdzić: boolean = false, czyWszystkoPotwierdzić: boolean = false) => {
-      ustawKrzyżykOkienka(false); 
-      ustawCiasteczka("czyPokazacOkienko", false, {path: "/", expires: new Date(Date.now() + 5*24*3600*1000)});
+      ustawWidocznośćCiastek && ustawWidocznośćCiastek(false);
       if(czyZatwierdzić){
         ustawCiasteczka("czyZezwalaNaZAI", zezwolenieNaZAI, {path: "/", expires: new Date(Date.now() + 5*24*3600*1000)});
         ustawCiasteczka("czyZezwalaNaZPU", zezwolenieNaZPU, {path: "/", expires: new Date(Date.now() + 5*24*3600*1000)});        
@@ -33,35 +34,29 @@ export const WyskakująceOkienko = () => {
       console.log(ciasteczka);
     }
 
-    return (
-      <div className="ustawieniaStrony" onClick={() => ustawKrzyżykOkienka(true)}><img src={ciasteczko} alt="ciasteczko"/>
-        <Popup open={krzyżykOkienka}>
-          <div id="główny">
-            <div id="wnętrze">
-              <div id="krzyżyk" onClick={() => zamknijOkienko()}><img src={krzyżyk} alt="zamknij" /></div>
+    return ( 
+        <div id="wnętrze" className={czyOtwarty ? 'otwarte' : ''}>
+          <div id="krzyżyk" onClick={() => zamknijOkienko()}><img src={krzyżyk} alt="zamknij" /></div>
               
-              <h1>Używamy ciasteczka!</h1>
-              <b><p>I choć wierzemy, że czasami trzeba osłodzić swoje życie, tak też rozumiemy Twoją chęć prywatności i ją szanujemy.</p></b>
+          <h1>Używamy ciasteczka!</h1>
+          <b><p>I choć wierzemy, że czasami trzeba osłodzić swoje życie, tak też rozumiemy Twoją chęć prywatności i ją szanujemy.</p></b>
               
-              <div id="wajchy">
-                <p>Ciasteczka zapamiętujące preferencje użytkownika.</p>
-                <label className="wajcha">
-                  <input type="checkbox" defaultChecked={ciasteczka.czyZezwalaNaZPU} onClick={()=>ustawZezwolenieZPU(!zezwolenieNaZPU)}/>
-                  <span className="suwak"></span>
-                </label>
-                <p>Ciasteczka zbierające anonimowo informacje na temat odwiedzonych części stron.</p>
-                <label className="wajcha">
-                  <input type="checkbox" defaultChecked={ciasteczka.czyZezwalaNaZAI} onClick={()=>ustawZezwolenieZAI(!zezwolenieNaZAI)}/>
-                  <span className="suwak"></span>
-                </label>
-              </div>
-              <div id="przyciski">
-                <button onClick={() => zamknijOkienko(false, true)}>Potwierdź wszystkie</button>
-                <button onClick={() => zamknijOkienko(true)}>Zapisz Wybór</button>
-              </div>
-            </div>
+          <div id="wajchy">
+            <p>Ciasteczka zapamiętujące preferencje użytkownika.</p>
+            <label className="wajcha">
+              <input type="checkbox" defaultChecked={ciasteczka.czyZezwalaNaZPU} onClick={()=>ustawZezwolenieZPU(!zezwolenieNaZPU)}/>
+              <span className="suwak"></span>
+            </label>
+            <p>Ciasteczka zbierające anonimowo informacje na temat odwiedzonych części stron.</p>
+            <label className="wajcha">
+              <input type="checkbox" defaultChecked={ciasteczka.czyZezwalaNaZAI} onClick={()=>ustawZezwolenieZAI(!zezwolenieNaZAI)}/>
+              <span className="suwak"></span>
+            </label>
           </div>
-        </Popup>
-      </div>
+          <div id="przyciski">
+            <button onClick={() => zamknijOkienko(false, true)}>Potwierdź wszystkie</button>
+            <button onClick={() => zamknijOkienko(true)}>Zapisz Wybór</button>
+          </div>
+        </div>
     )
 }

@@ -5,10 +5,15 @@ import { useState, createContext, useEffect } from 'react';
 import { Nawigacja } from './komponenty/Nawigacja';
 import { Context } from 'vm';
 import { useCookies } from 'react-cookie';
+import { useTranslation } from 'react-i18next';
 import { WyskakująceOkienko } from './komponenty/WyskakująceOkienko';
-import Tłumaczenia from './komponenty/Tłumaczenia';
 
 import logo from'./zdjęcia/logo.png';
+import ciasteczko from './zdjęcia/ikony/cookies-icon.png';
+import polski from './zdjęcia/ikony/poland-flag-icon.png';
+import angielski from './zdjęcia/ikony/united-kingdom-flag-icon.png'
+import niemiecki from './zdjęcia/ikony/germany-flag-icon.png'
+import rosyjski from './zdjęcia/ikony/russia-flag-icon.png'
 
 import { useUżywanyJęzyk } from './haki/useUżywanyJęzyk';
 
@@ -18,11 +23,33 @@ import OPrzygierrodzie from './podstrony/oPrzygierrodzie';
 import WesprzyjNas from './podstrony/WesprzyjNas';
 import Praca from './podstrony/praca';
 import Regulamin from './podstrony/regulamin';
+import ListaJęzyków from './komponenty/ListaJęzyków';
 
 
 
 function App() {
-  Tłumaczenia();
+
+  const [widocznośćCiastek, ustawWidocznośćCiastek] = useState<boolean>(false);
+  const [widocznośćPaskaJęzyków, ustawWidocznośćPaskaJęzyków] = useState<boolean>(false);
+
+  const{ i18n } = useTranslation();
+
+    const [używanyJęzyk, nazwa, zmieńJęzyk] = useUżywanyJęzyk();
+    const dostępneJęzyki = [
+        {język: "Polski", ikona: polski, kod:"pl"},
+        {język: "Angielski", ikona: angielski, kod:"en"},
+        {język: "Niemiecki", ikona: niemiecki, kod:"de"},
+        {język: "Rosyjski", ikona: rosyjski, kod:"ru"}
+    ];
+
+  const ustawJęzyk = (kod: string, ikona: string) => {
+        // i18n.changeLanguage(kod).then(() => {
+        //     window.location.reload();
+        // });
+        i18n.changeLanguage(kod);
+        zmieńJęzyk(ikona);
+        ustawWidocznośćPaskaJęzyków(false);
+    }
 
   const [ciasteczka, ustawCiasteczka] = useCookies(["czyPokazacOkienko","czyZezwalaNaZPU","czyZezwalaNaZAI","jakiJezyk"]);
   useEffect(() => {
@@ -30,10 +57,11 @@ function App() {
       ustawCiasteczka("jakiJezyk", null);
     }
     if(ciasteczka.czyPokazacOkienko == null){
-      ustawCiasteczka("czyPokazacOkienko", true, {path: "/", expires: new Date(Date.now() + 5*24*3600*1000)});
+      ustawCiasteczka("czyPokazacOkienko", false, {path: "/", expires: new Date(Date.now() + 5*24*3600*1000)});
       ustawCiasteczka("czyZezwalaNaZPU", true, {path: "/", expires: new Date(Date.now() + 5*24*3600*1000)});
       ustawCiasteczka("czyZezwalaNaZAI", true, {path: "/", expires: new Date(Date.now() + 5*24*3600*1000)});
-      ustawCiasteczka("jakiJezyk", "Polski", {path: "/", expires: new Date(Date.now() + 5*24*3600*1000)})
+      ustawCiasteczka("jakiJezyk", "Polski", {path: "/", expires: new Date(Date.now() + 5*24*3600*1000)});
+      ustawWidocznośćCiastek(true);
     }
   }, [ciasteczka.czyPokazacOkienko == null]);
   
@@ -47,9 +75,23 @@ function App() {
         <Nawigacja/>
       </div>
       <div className="przybocznyPasek">
-        <WyskakująceOkienko></WyskakująceOkienko>
-        <Tłumaczenia></Tłumaczenia>
+        <div className="ustawieniaStrony">
+          <img src={ciasteczko} alt="ciasteczko" onClick={() => ustawWidocznośćCiastek(!widocznośćCiastek)}/>
+        </div>
+        <div className="ustawieniaStrony" onClick={() => ustawWidocznośćPaskaJęzyków(!widocznośćPaskaJęzyków)}>
+          <img src={(używanyJęzyk as string)} alt={nazwa as string}/>
+        </div>
       </div>
+      <ListaJęzyków 
+        czyOtwarty={widocznośćPaskaJęzyków}
+        używanyJęzyk={używanyJęzyk as string}
+        dostępneJęzyki={dostępneJęzyki}
+        ustawJęzyk={ustawJęzyk}
+      />
+      <WyskakująceOkienko
+        czyOtwarty={widocznośćCiastek}
+        ustawWidocznośćCiastek={ustawWidocznośćCiastek}
+      />
       <div id="stałaCzęść">
         <section id="lewaNauka"></section>
         <section id="głównaCzęść">
