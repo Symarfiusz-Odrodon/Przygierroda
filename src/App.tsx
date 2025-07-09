@@ -1,7 +1,7 @@
 import './App.css';
 
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import { useState, createContext, useEffect } from 'react';
+import { useState, createContext, useEffect, useRef } from 'react';
 import { Nawigacja } from './komponenty/Nawigacja';
 import { Context } from 'vm';
 import { useCookies } from 'react-cookie';
@@ -32,6 +32,47 @@ function App() {
   const [widocznośćCiastek, ustawWidocznośćCiastek] = useState<boolean>(false);
   const [widocznośćPaskaJęzyków, ustawWidocznośćPaskaJęzyków] = useState<boolean>(false);
 
+  const animScrollRef = useRef<number | null>(null);
+  const targetScrollRef = useRef<number>(0);
+
+  useEffect(() => {
+    const obsługaKółko = (e: WheelEvent) => {
+      const głównaŚrodkowa = document.getElementById("głównaŚrodkowa");
+      if (głównaŚrodkowa) {
+        e.preventDefault();
+
+        targetScrollRef.current = Math.max(
+          0,
+          Math.min(
+            głównaŚrodkowa.scrollHeight - głównaŚrodkowa.clientHeight,
+            głównaŚrodkowa.scrollTop + e.deltaY
+          )
+        );
+
+        // Jeśli nie ma już animacji, zacznij nową
+        if (!animScrollRef.current) {
+          const animate = () => {
+            const current = głównaŚrodkowa.scrollTop;
+            const target = targetScrollRef.current;
+            const diff = target - current;
+            if (Math.abs(diff) > 1) {
+              głównaŚrodkowa.scrollTop = current + diff* 0.75; // im mniejsza liczba, tym wolniej
+              animScrollRef.current = requestAnimationFrame(animate);
+            } else {
+              głównaŚrodkowa.scrollTop = target;
+              animScrollRef.current = null;
+            }
+          };
+          animate();
+        }
+      }
+    };
+    window.addEventListener("wheel", obsługaKółko, { passive: false });
+    return () => {
+      window.removeEventListener("wheel", obsługaKółko);
+    };
+  }, []);
+
   const{ i18n } = useTranslation();
 
     const [używanyJęzyk, nazwa, zmieńJęzyk] = useUżywanyJęzyk();
@@ -43,18 +84,18 @@ function App() {
     ];
 
   const ustawJęzyk = (kod: string, ikona: string) => {
-        // i18n.changeLanguage(kod).then(() => {
-        //     window.location.reload();
-        // });
         i18n.changeLanguage(kod);
         zmieńJęzyk(ikona);
         ustawWidocznośćPaskaJęzyków(false);
-    }
+  }
 
   const [ciasteczka, ustawCiasteczka] = useCookies(["czyPokazacOkienko","czyZezwalaNaZPU","czyZezwalaNaZAI","jakiJezyk"]);
   useEffect(() => {
+    const domyślnyKod = navigator.language.split("-")[0];
+    const domyślnyJęzyk = dostępneJęzyki.find(j => j.kod === domyślnyKod);
     if(!ciasteczka.czyZezwalaNaZPU){
       ustawCiasteczka("jakiJezyk", null);
+      ustawJęzyk(domyślnyJęzyk?.kod || "en", domyślnyJęzyk?.ikona || angielski);
     }
     if(ciasteczka.czyPokazacOkienko == null){
       ustawCiasteczka("czyPokazacOkienko", false, {path: "/", expires: new Date(Date.now() + 5*24*3600*1000)});

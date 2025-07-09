@@ -29,7 +29,7 @@ export const WyskakująceOkienko = ({ czyOtwarty, ustawWidocznośćCiastek }: Pr
         ustawCiasteczka("czyZezwalaNaZAI", true, {path: "/", expires: new Date(Date.now() + 5*24*3600*1000)});
         ustawCiasteczka("czyZezwalaNaZPU", true, {path: "/", expires: new Date(Date.now() + 5*24*3600*1000)});
         ustawZezwolenieZAI(true);
-        ustawZezwolenieZPU(true)
+        ustawZezwolenieZPU(true);
       }
       console.log(ciasteczka);
     }
@@ -44,12 +44,12 @@ export const WyskakująceOkienko = ({ czyOtwarty, ustawWidocznośćCiastek }: Pr
           <div id="wajchy">
             <p>Ciasteczka zapamiętujące preferencje użytkownika.</p>
             <label className="wajcha">
-              <input type="checkbox" defaultChecked={ciasteczka.czyZezwalaNaZPU} onClick={()=>ustawZezwolenieZPU(!zezwolenieNaZPU)}/>
+              <input type="checkbox" checked={zezwolenieNaZPU} defaultChecked={ciasteczka.czyZezwalaNaZPU} onClick={()=>ustawZezwolenieZPU(!zezwolenieNaZPU)}/>
               <span className="suwak"></span>
             </label>
             <p>Ciasteczka zbierające anonimowo informacje na temat odwiedzonych części stron.</p>
             <label className="wajcha">
-              <input type="checkbox" defaultChecked={ciasteczka.czyZezwalaNaZAI} onClick={()=>ustawZezwolenieZAI(!zezwolenieNaZAI)}/>
+              <input type="checkbox" checked={zezwolenieNaZAI} defaultChecked={ciasteczka.czyZezwalaNaZAI} onClick={()=>ustawZezwolenieZAI(!zezwolenieNaZAI)}/>
               <span className="suwak"></span>
             </label>
           </div>
